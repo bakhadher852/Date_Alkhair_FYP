@@ -2,10 +2,20 @@
 
 import 'package:flutter/material.dart';
 
-class DonatePage extends StatelessWidget {
+enum FilterOptions {
+  Umobile,
+  XoX,
+}
+
+class DonatePage extends StatefulWidget {
   static const routeName = '/DonatePage';
   const DonatePage({super.key});
 
+  @override
+  State<DonatePage> createState() => _DonatePageState();
+}
+
+class _DonatePageState extends State<DonatePage> {
   @override
   Widget build(BuildContext context) {
     var AppbarHeight = AppBar().preferredSize.height;
@@ -21,6 +31,33 @@ class DonatePage extends StatelessWidget {
           children: [
             SizedBox(
               height: height * 0.21 - AppbarHeight,
+              child: Container(
+                //Fillter for sim company
+                child: PopupMenuButton(
+                  onSelected: (FilterOptions selectedValue) {
+                    setState(() {
+                      if (selectedValue == FilterOptions.Umobile) {
+                        // _showOnlyFavorites = true;
+                      } else {
+                        // _showOnlyFavorites = false;
+                      }
+                    });
+                  },
+                  icon: const Icon(
+                    Icons.more_vert,
+                  ),
+                  itemBuilder: (_) => [
+                    const PopupMenuItem(
+                      value: FilterOptions.Umobile,
+                      child: Text('Umobile'),
+                    ),
+                    const PopupMenuItem(
+                      value: FilterOptions.XoX,
+                      child: Text('XoX'),
+                    ),
+                  ],
+                ),
+              ),
             ),
             Container(
               color: const Color(0xffC1CDED),
@@ -142,8 +179,9 @@ class SelectPersonCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         elevation: 7,
-        margin: const EdgeInsets.only(top: 20),
+        margin: const EdgeInsets.only(top: 10, bottom: 10),
         color: Theme.of(context).canvasColor,
         child: Column(
           children: [
@@ -160,7 +198,11 @@ class SelectPersonCart extends StatelessWidget {
                     ),
                   ),
                   TextButton(
-                      onPressed: () {}, child: const Text('Prove Reason '))
+                      onPressed: () {},
+                      child: const Text(
+                        'Prove Reason ',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ))
                 ],
               ),
             ),
