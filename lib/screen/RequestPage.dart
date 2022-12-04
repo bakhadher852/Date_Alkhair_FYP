@@ -9,15 +9,17 @@ class RequestPage extends StatefulWidget {
 }
 
 class _RequestPageState extends State<RequestPage> {
+  //Varibles has the value that user select
   double _currentSliderValue = 0;
-  var dropdownReasonValue;
+  String? dropdownReasonValue;
+  String? companyNameSelected;
   List<String> ReasonsList = [
-    'For study study',
+    'For study ',
     'Social media',
     'Work purpose',
     'Others'
   ];
-  List<String> CompanyName = [];
+  List<String> CompanyName = ['Umobile', 'Maxis', 'XoX'];
   @override
   Widget build(BuildContext context) {
     var AppbarHeight = AppBar().preferredSize.height;
@@ -146,7 +148,7 @@ class _RequestPageState extends State<RequestPage> {
                     elevation: 20,
                     icon: const Icon(Icons.arrow_drop_down_circle_outlined,
                         color: Color(0xff0030DD)),
-                    items: ReasonsList.map<DropdownMenuItem<String>>((value) {
+                    items: CompanyName.map<DropdownMenuItem<String>>((value) {
                       return DropdownMenuItem<String>(
                         value: value,
                         child: Padding(
@@ -161,7 +163,7 @@ class _RequestPageState extends State<RequestPage> {
                     }).toList(),
                     onChanged: (value) {
                       setState(() {
-                        dropdownReasonValue = value!;
+                        companyNameSelected = value!;
                       });
                     },
                   ),
