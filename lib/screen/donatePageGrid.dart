@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 class donatePageGrid extends StatefulWidget {
@@ -8,12 +9,14 @@ class donatePageGrid extends StatefulWidget {
     required this.Reason,
     required this.date,
     required this.company,
+    required this.phoneNumber,
   }) : super(key: key);
   final String name;
   final double GB;
   final String Reason;
   final String date;
   final String company;
+  final int phoneNumber;
 
   @override
   State<donatePageGrid> createState() => _donatePageGridState();
@@ -53,9 +56,14 @@ class _donatePageGridState extends State<donatePageGrid> {
                                     TextButton(
                                         onPressed: () {
                                           ScaffoldMessenger.of(context)
-                                              .showSnackBar(SnackBar(
+                                              .showSnackBar(const SnackBar(
+                                                  backgroundColor: Colors.blue,
                                                   content: Text(
-                                                      'Thank You for Donation...')));
+                                                      'Thank You for Donation...',
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 17))));
 
                                           Navigator.of(context).pop();
                                         },
@@ -76,36 +84,37 @@ class _donatePageGridState extends State<donatePageGrid> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Need ${widget.GB} GB'),
-                  Container(
-                      margin: const EdgeInsets.only(
-                        right: 12,
-                      ),
-                      child: Text(widget.Reason))
-                ],
-              ),
-            ),
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Need ${widget.GB} GB'),
+                    Container(
+                        margin: const EdgeInsets.only(
+                          right: 12,
+                        ),
+                        child: Text(widget.Reason))
+                  ],
+                )),
             Container(
                 margin: const EdgeInsets.only(right: 9, left: 9, bottom: 15),
                 width: double.infinity,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    //show the company name
                     Text(
                       widget.company,
                       textAlign: TextAlign.end,
-                    ),
+                    ), //show the phone number
+                    Text(widget.phoneNumber.toString()),
                     Padding(
-                      padding: const EdgeInsets.only(right: 13),
-                      child: Text(
-                        widget.date,
-                        textAlign: TextAlign.end,
-                      ),
-                    ),
+                        padding: const EdgeInsets.only(right: 13),
+                        //show the date of Request
+                        child: Text(
+                          widget.date,
+                          textAlign: TextAlign.end,
+                        )),
                   ],
                 ))
           ],

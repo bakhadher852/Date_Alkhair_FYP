@@ -20,6 +20,47 @@ class _RequestPageState extends State<RequestPage> {
     'Others'
   ];
   List<String> CompanyName = ['Umobile', 'Maxis', 'XoX'];
+  void validateUserInput(BuildContext context) {
+    if (_currentSliderValue == 0) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        backgroundColor: Colors.red,
+        content: Text(
+          'Erorr... Enter amount of Data',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+        ),
+      ));
+      return;
+    }
+    if (companyNameSelected == null) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        backgroundColor: Colors.red,
+        content: Text(
+          'Erorr...Enter Sim Provider',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+        ),
+      ));
+      return;
+    }
+    if (dropdownReasonValue == null) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        backgroundColor: Colors.red,
+        content: Text(
+          'Erorr...Enter Your Reason',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+        ),
+      ));
+      return;
+    }
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      backgroundColor: Colors.blue,
+      content: Text(
+        'Request Successful...',
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+      ),
+    ));
+    Navigator.of(context).pop();
+  }
+
   @override
   Widget build(BuildContext context) {
     var AppbarHeight = AppBar().preferredSize.height;
@@ -45,16 +86,9 @@ class _RequestPageState extends State<RequestPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      IconButton(
-                        icon: const Icon(Icons.arrow_back),
-                        color: const Color(0xff0030DD),
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                      ),
-                      const Spacer(),
-                      const Padding(
-                        padding: EdgeInsets.only(right: 25.0),
+                      Spacer(),
+                      Padding(
+                        padding: EdgeInsets.only(right: width * 0.13),
                         child: Text(
                           'How much data you need',
                           style: TextStyle(
@@ -210,7 +244,9 @@ class _RequestPageState extends State<RequestPage> {
                     height: 50,
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      validateUserInput(context);
+                    },
                     child: const Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Text(
@@ -246,6 +282,22 @@ class _RequestPageState extends State<RequestPage> {
           radius: 105,
         ),
       ),
+      Positioned(
+          top: height * 0.16,
+          left: 20,
+          child: Material(
+            child: Container(
+              color: Color.fromARGB(184, 86, 117, 231),
+              child: IconButton(
+                style: ElevatedButton.styleFrom(),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                icon: Icon(Icons.arrow_back),
+                color: Color(0xff0030DD),
+              ),
+            ),
+          ))
     ]);
   }
 }

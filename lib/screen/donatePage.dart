@@ -22,63 +22,72 @@ class _DonatePageState extends State<DonatePage> {
       'name': 'Khalid',
       'Reason': 'For study',
       'GB': 2.0,
-      'date': 'Today'
+      'date': 'Today',
+      'phoneNumber': 01162332707
     },
     {
       'company': 'Umobile',
       'name': 'Farah ',
       'Reason': 'Work purpose',
       'GB': 0.5,
-      'date': 'Today'
+      'date': 'Today',
+      'phoneNumber': 01162332101
     },
     {
       'company': 'Umobile',
       'name': 'Muaz ',
       'Reason': 'Others',
       'GB': 1.5,
-      'date': 'Yesterday'
+      'date': 'Yesterday',
+      'phoneNumber': 01162332202
     },
     {
       'company': 'Umobile',
       'name': 'Jalal ',
       'Reason': 'Others',
       'GB': 1.0,
-      'date': 'Yesterday'
+      'date': 'Yesterday',
+      'phoneNumber': 01162332505
     },
     {
       'company': 'Maxis',
       'name': 'name:Hajar ',
       'Reason': 'For study',
       'GB': 1.0,
-      'date': 'Today'
+      'date': 'Today',
+      'phoneNumber': 01162332454
     },
     {
       'company': 'Maxis',
       'name': 'Murad ',
       'Reason': 'Social media',
       'GB': 0.5,
-      'date': 'Today'
+      'date': 'Today',
+      'phoneNumber': 01162332789
     },
     {
       'company': 'Maxis',
       'name': 'Husna ',
       'Reason': 'Others',
       'GB': 1.0,
-      'date': 'Yesterday'
+      'date': 'Yesterday',
+      'phoneNumber': 01162332025
     },
     {
       'company': 'Maxis',
       'name': 'Marwan ',
       'Reason': 'Work purpose',
       'GB': 1.0,
-      'date': 'Today'
+      'date': 'Today',
+      'phoneNumber': 01162332700
     },
     {
       'company': 'XoX',
       'name': 'Iffat ',
       'Reason': 'For study',
       'GB': 2.0,
-      'date': 'Today'
+      'date': 'Today',
+      'phoneNumber': 01162332000
     },
   ];
   bool showAllPepol = false;
@@ -162,22 +171,22 @@ class _DonatePageState extends State<DonatePage> {
       }
     }
 
-    print('------------rebuild-----------------------');
-    print('UmobileList=======');
-    print(UmobileList);
-    print('MaxisList========');
-    print(MaxisList);
-    print('XoXList========');
-    print(XoXList);
-    print('======================bool==================');
-    print('showAllPepol');
-    print(showAllPepol);
-    print('showUmobileOnlyPepol');
-    print(showUmobileOnlyPepol);
-    print('showMaxisOnlyPepol');
-    print(showMaxisOnlyPepol);
-    print('showXoXOnlyPepol');
-    print(showXoXOnlyPepol);
+    // print('------------rebuild-----------------------');
+    // print('UmobileList=======');
+    // print(UmobileList);
+    // print('MaxisList========');
+    // print(MaxisList);
+    // print('XoXList========');
+    // print(XoXList);
+    // print('======================bool==================');
+    // print('showAllPepol');
+    // print(showAllPepol);
+    // print('showUmobileOnlyPepol');
+    // print(showUmobileOnlyPepol);
+    // print('showMaxisOnlyPepol');
+    // print(showMaxisOnlyPepol);
+    // print('showXoXOnlyPepol');
+    // print(showXoXOnlyPepol);
 
     var AppbarHeight = AppBar().preferredSize.height;
     final height = MediaQuery.of(context).size.height;
@@ -202,13 +211,6 @@ class _DonatePageState extends State<DonatePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      IconButton(
-                        icon: const Icon(Icons.arrow_back),
-                        color: const Color(0xff0030DD),
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                      ),
                       const Padding(
                         padding: EdgeInsets.only(right: 0.0),
                         child: Text(
@@ -284,6 +286,7 @@ class _DonatePageState extends State<DonatePage> {
                     width: width * 0.90,
                     child: ListView.builder(
                         itemBuilder: (context, i) => donatePageGrid(
+                            phoneNumber: pepolListFiltered[i]['phoneNumber'],
                             Reason: pepolListFiltered[i]['Reason'],
                             company: pepolListFiltered[i]['company'],
                             date: pepolListFiltered[i]['date'],
@@ -297,7 +300,6 @@ class _DonatePageState extends State<DonatePage> {
           ],
         ),
       ),
-
       const Positioned(
         top: -80,
         left: -10,
@@ -315,19 +317,22 @@ class _DonatePageState extends State<DonatePage> {
           radius: 105,
         ),
       ),
-      // Positioned(
-      //   top: 100,
-      //   child: SizedBox(
-      //     height: 50,
-      //     width: width,
-      //     child: Scaffold(
-      //       appBar: AppBar(
-      //           //backgroundColor: Color.fromARGB(203, 244, 67, 54),
-      //           elevation: 0,
-      //           automaticallyImplyLeading: true),
-      //     ),
-      //   ),
-      // ),
+      Positioned(
+          top: height * 0.16,
+          left: 20,
+          child: Material(
+            child: Container(
+              color: Color.fromARGB(184, 86, 117, 231),
+              child: IconButton(
+                style: ElevatedButton.styleFrom(),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                icon: Icon(Icons.arrow_back),
+                color: Color(0xff0030DD),
+              ),
+            ),
+          ))
     ]);
   }
 }
