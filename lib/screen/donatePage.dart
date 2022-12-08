@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 enum FilterOptions { All, Umobile, XoX, Maxis }
 
 class DonatePage extends StatefulWidget {
-  static const routeName = '/DonatePage';
+  static const RouteName = '/DonatePage';
   const DonatePage({super.key});
 
   @override

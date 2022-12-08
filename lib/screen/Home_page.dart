@@ -8,12 +8,14 @@ import 'History.dart';
 import 'RequestPage.dart';
 
 class HomePage extends StatefulWidget {
+  static const RouteName = '/HomePage';
   const HomePage({super.key});
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+  String UserName = '';
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -22,6 +24,8 @@ class _HomePageState extends State<HomePage> {
       Scaffold(
         backgroundColor: Theme.of(context).canvasColor,
         appBar: AppBar(
+          //to change the background color of back button to disappear
+          iconTheme: IconThemeData(color: Color.fromARGB(0, 170, 187, 250)),
           bottom: PreferredSize(
               preferredSize: Size.fromHeight(height * 0.27),
               child: Row(
@@ -42,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                         Padding(
                           padding: EdgeInsets.only(bottom: 15),
                           child: Text(
-                            'Welcome Sara \n in Data Al-Khair',
+                            'Welcome $UserName \n in Data Al-Khair',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 30,
@@ -67,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                     )
                   ])),
         ),
-        body: Container(
+        body: SizedBox(
           width: width,
           height: height * 73,
           child: Column(
