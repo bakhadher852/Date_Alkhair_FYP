@@ -51,7 +51,7 @@ class _DonatePageState extends State<DonatePage> {
     },
     {
       'company': 'Maxis',
-      'name': 'name:Hajar ',
+      'name': 'Hajar ',
       'Reason': 'For study',
       'GB': 1.0,
       'date': 'Today',
@@ -170,23 +170,6 @@ class _DonatePageState extends State<DonatePage> {
         });
       }
     }
-
-    // print('------------rebuild-----------------------');
-    // print('UmobileList=======');
-    // print(UmobileList);
-    // print('MaxisList========');
-    // print(MaxisList);
-    // print('XoXList========');
-    // print(XoXList);
-    // print('======================bool==================');
-    // print('showAllPepol');
-    // print(showAllPepol);
-    // print('showUmobileOnlyPepol');
-    // print(showUmobileOnlyPepol);
-    // print('showMaxisOnlyPepol');
-    // print(showMaxisOnlyPepol);
-    // print('showXoXOnlyPepol');
-    // print(showXoXOnlyPepol);
 
     var AppbarHeight = AppBar().preferredSize.height;
     final height = MediaQuery.of(context).size.height;

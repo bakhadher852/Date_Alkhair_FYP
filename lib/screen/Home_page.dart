@@ -6,7 +6,7 @@ import 'package:date_alkhair/screen/donatePage.dart';
 import 'package:flutter/material.dart';
 
 import '../widget/MySearchDelegate.dart';
-import '../widget/ProfileWidgetEmpty.dart';
+import '../widget/ProfilePhoto.dart';
 import 'History.dart';
 import 'RequestPage.dart';
 
@@ -40,22 +40,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Column(
                       children: [
-                        // child: CircleAvatar(
-                        //   radius: 55,
-                        //   // backgroundImage: NetworkImage(
-                        //   //   'https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=389&q=80',
-                        //   // ),
-                        //   child: ClipOval(
-                        //       child:
-                        //           Image(image: AssetImage('assets/img.jpg'))),
-                        // )
-                        // _image == null
-                        //     ?
-                        //     : ProfileGalarySelected(
-                        //         imagePath: _image,
-                        //         onClicked: pickImage,
-                        //       ),
-                        ProfileWidgetEmpty(),
+                        ProfilePhoto(),
                         Padding(
                           padding: EdgeInsets.only(bottom: 15),
                           child: Text(

@@ -6,16 +6,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 
-class ProfileWidgetEmpty extends StatefulWidget {
-  const ProfileWidgetEmpty({
+class ProfilePhoto extends StatefulWidget {
+  const ProfilePhoto({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<ProfileWidgetEmpty> createState() => _ProfileWidgetEmptyState();
+  State<ProfilePhoto> createState() => _ProfilePhotoState();
 }
 
-class _ProfileWidgetEmptyState extends State<ProfileWidgetEmpty> {
+class _ProfilePhotoState extends State<ProfilePhoto> {
   File? _image;
   Future _pickImage() async {
     try {

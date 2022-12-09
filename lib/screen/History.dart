@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../widget/Donated.dart';
+import '../widget/Earned.dart';
+
 class HistoryPage extends StatelessWidget {
   static const RouteName = '/HistoryPage';
   const HistoryPage({super.key});
@@ -31,10 +34,10 @@ class HistoryPage extends StatelessWidget {
             ],
           ),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: [
-            Text('Earned'),
-            Text('Donated'),
+            Earned(),
+            Donated(),
           ],
         ),
       ),

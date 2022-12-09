@@ -3,14 +3,7 @@ import 'package:flutter/material.dart';
 class MySearchDelegate extends SearchDelegate {
 // Demo list to show querying
   List<String> searchTerms = [
-    "Apple",
-    "Banana",
-    "Mango",
-    "Pear",
-    "Watermelons",
-    "Blueberries",
-    "Pineapples",
-    "Strawberries"
+    "0116233547",
   ];
 
 // first overwrite to
