@@ -1,17 +1,41 @@
+// ignore_for_file: file_names
+
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 
-class ProfileWidgetEmpty extends StatelessWidget {
-  // final String imagePath;
-  // final VoidCallback onClicked;
-
+class ProfileWidgetEmpty extends StatefulWidget {
   const ProfileWidgetEmpty({
     Key? key,
-    // required this.imagePath,
-    // required this.onClicked,
   }) : super(key: key);
 
   @override
+  State<ProfileWidgetEmpty> createState() => _ProfileWidgetEmptyState();
+}
+
+class _ProfileWidgetEmptyState extends State<ProfileWidgetEmpty> {
+  File? _image;
+  Future _pickImage() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+      File? img = File(image!.path);
+
+      // ignore: unnecessary_null_comparison
+      if (image == null) return;
+      setState(() {
+        _image = img;
+      });
+    } on PlatformException catch (e) {
+      print('Failed to pick image:$e');
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     final color = Theme.of(context).colorScheme.primary;
 
     return Center(
@@ -29,20 +53,23 @@ class ProfileWidgetEmpty extends StatelessWidget {
   }
 
   Widget buildImage() {
-    final image = NetworkImage('imagePath');
-    final MYimage = AssetImage('assets/img.jpg');
+    const myimage = AssetImage('assets/img.jpg');
     return ClipOval(
         child: Material(
       color: Colors.transparent,
-      child: Ink.image(
-        image: MYimage,
-        fit: BoxFit.cover,
-        width: 128,
-        height: 128,
-        child: InkWell(
-          onTap: (() {}),
-        ),
-      ),
+      child: _image == null
+          ? Ink.image(
+              image: myimage,
+              fit: BoxFit.cover,
+              width: 120,
+              height: 120,
+            )
+          : Image.file(
+              _image!,
+              width: 128,
+              height: 128,
+              fit: BoxFit.cover,
+            ),
     ));
   }
 
@@ -52,7 +79,7 @@ class ProfileWidgetEmpty extends StatelessWidget {
         child: buildCircle(
           color: color,
           all: 8,
-          child: Icon(
+          child: const Icon(
             Icons.edit,
             color: Colors.white,
             size: 20,
@@ -65,11 +92,13 @@ class ProfileWidgetEmpty extends StatelessWidget {
     required double all,
     required Color color,
   }) =>
-      ClipOval(
-        child: Container(
-          padding: EdgeInsets.all(all),
-          color: color,
-          child: child,
-        ),
-      );
+      GestureDetector(
+          onTap: (() => _pickImage()),
+          child: ClipOval(
+            child: Container(
+              padding: EdgeInsets.all(all),
+              color: color,
+              child: child,
+            ),
+          ));
 }

@@ -3,10 +3,7 @@
 import 'dart:io';
 
 import 'package:date_alkhair/screen/donatePage.dart';
-import 'package:date_alkhair/widget/ProfileGalary.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:image_picker/image_picker.dart';
 
 import '../widget/MySearchDelegate.dart';
 import '../widget/ProfileWidgetEmpty.dart';
@@ -21,22 +18,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  File? _image;
-  Future pickImage(ImageSource source) async {
-    try {
-      final image = await ImagePicker().pickImage(source: source);
-      File? img = File(image!.path);
-      // ignore: unnecessary_null_comparison
-      if (image == null) return;
-      setState(() {
-        _image = img;
-        Navigator.of(context).pop();
-      });
-    } on PlatformException catch (e) {
-      print('Failed to pick image:$e');
-    }
-  }
-
   String UserName = '';
   @override
   Widget build(BuildContext context) {
@@ -69,11 +50,12 @@ class _HomePageState extends State<HomePage> {
                         //           Image(image: AssetImage('assets/img.jpg'))),
                         // )
                         // _image == null
-                        //     ? ProfileWidgetEmpty()
+                        //     ?
                         //     : ProfileGalarySelected(
                         //         imagePath: _image,
                         //         onClicked: pickImage,
                         //       ),
+                        ProfileWidgetEmpty(),
                         Padding(
                           padding: EdgeInsets.only(bottom: 15),
                           child: Text(
