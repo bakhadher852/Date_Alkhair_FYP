@@ -37,10 +37,16 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Column(
                       children: [
-                        CircleAvatar(
-                          radius: 50,
-                          backgroundImage: NetworkImage(
-                            'https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=389&q=80',
+                        GestureDetector(
+                          onTap: () {},
+                          child: CircleAvatar(
+                            radius: 55,
+                            // backgroundImage: NetworkImage(
+                            //   'https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=389&q=80',
+                            // ),
+                            child: ClipOval(
+                                child:
+                                    Image(image: AssetImage('assets/img.jpg'))),
                           ),
                         ),
                         Padding(
