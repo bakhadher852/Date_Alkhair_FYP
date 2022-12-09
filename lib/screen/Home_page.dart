@@ -1,9 +1,15 @@
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last, prefer_const_literals_to_create_immutables
 
+import 'dart:io';
+
 import 'package:date_alkhair/screen/donatePage.dart';
+import 'package:date_alkhair/widget/ProfileGalary.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../widget/MySearchDelegate.dart';
+import '../widget/ProfileWidgetEmpty.dart';
 import 'History.dart';
 import 'RequestPage.dart';
 
@@ -15,6 +21,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  File? _image;
+  Future pickImage(ImageSource source) async {
+    try {
+      final image = await ImagePicker().pickImage(source: source);
+      File? img = File(image!.path);
+      // ignore: unnecessary_null_comparison
+      if (image == null) return;
+      setState(() {
+        _image = img;
+        Navigator.of(context).pop();
+      });
+    } on PlatformException catch (e) {
+      print('Failed to pick image:$e');
+    }
+  }
+
   String UserName = '';
   @override
   Widget build(BuildContext context) {
@@ -37,18 +59,21 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Column(
                       children: [
-                        GestureDetector(
-                          onTap: () {},
-                          child: CircleAvatar(
-                            radius: 55,
-                            // backgroundImage: NetworkImage(
-                            //   'https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=389&q=80',
-                            // ),
-                            child: ClipOval(
-                                child:
-                                    Image(image: AssetImage('assets/img.jpg'))),
-                          ),
-                        ),
+                        // child: CircleAvatar(
+                        //   radius: 55,
+                        //   // backgroundImage: NetworkImage(
+                        //   //   'https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=389&q=80',
+                        //   // ),
+                        //   child: ClipOval(
+                        //       child:
+                        //           Image(image: AssetImage('assets/img.jpg'))),
+                        // )
+                        // _image == null
+                        //     ? ProfileWidgetEmpty()
+                        //     : ProfileGalarySelected(
+                        //         imagePath: _image,
+                        //         onClicked: pickImage,
+                        //       ),
                         Padding(
                           padding: EdgeInsets.only(bottom: 15),
                           child: Text(

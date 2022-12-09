@@ -2,11 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
-class ProfileWidget extends StatelessWidget {
+class ProfileGalarySelected extends StatelessWidget {
   final String imagePath;
   final VoidCallback onClicked;
 
-  const ProfileWidget({
+  const ProfileGalarySelected({
     Key? key,
     required this.imagePath,
     required this.onClicked,
@@ -34,17 +34,18 @@ class ProfileWidget extends StatelessWidget {
     final image = NetworkImage(imagePath);
 
     return ClipOval(
-      child: Material(
-        color: Colors.transparent,
-        child: Ink.image(
-          image: image,
-          fit: BoxFit.cover,
-          width: 128,
-          height: 128,
-          child: InkWell(onTap: onClicked),
+        child: Material(
+      color: Colors.transparent,
+      child: Ink.image(
+        image: image,
+        fit: BoxFit.cover,
+        width: 128,
+        height: 128,
+        child: InkWell(
+          onTap: (() {}),
         ),
       ),
-    );
+    ));
   }
 
   Widget buildEditIcon(Color color) => buildCircle(
