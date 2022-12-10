@@ -29,157 +29,134 @@ class _SignUpState extends State<SignUp> {
     // print(width * 0.25);
     // print('=====================================');
     //Name textFiled
+    //short cut Color
+    Color buildColor() => const Color.fromRGBO(91, 123, 238, 1);
+    //short cut UnderLineBorder
+    InputBorder buildUnderLineBorder() => UnderlineInputBorder(
+          borderSide: BorderSide(color: buildColor()),
+        );
+    //short cut labelStyle
+    TextStyle buildlabelStyle() => TextStyle(
+          fontWeight: FontWeight.bold,
+          color: buildColor(),
+        );
+
+    //short cut hintStyle
+    TextStyle buildHintStyle() => TextStyle(
+          fontSize: 12,
+          color: buildColor(),
+        );
+
+    //short cut UnderLineBorder
+    buildTextInputAction() => TextInputAction.done;
+    //short cut padding
+    buildPadding() => EdgeInsets.symmetric(horizontal: height * 0.04);
+    //short cut UnderLineBorder
+    //short cut UnderLineBorder
+    //short cut UnderLineBorder
+    //short cut UnderLineBorder
+    //short cut UnderLineBorder
+
     Widget buildName() => Padding(
-          padding: EdgeInsets.symmetric(horizontal: height * 0.04),
+          padding: buildPadding(),
           child: TextField(
             controller: userName,
-            decoration: const InputDecoration(
-                enabledBorder: UnderlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Color.fromRGBO(91, 123, 238, 1)),
-                ),
+            decoration: InputDecoration(
+                enabledBorder: buildUnderLineBorder(),
                 hintText: 'Enter your name',
                 labelText: 'Name',
-                labelStyle: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromRGBO(91, 123, 238, 1),
-                ),
-                hintStyle: TextStyle(
-                  fontSize: 12,
-                  color: Color.fromRGBO(91, 123, 238, 1),
-                ),
-                focusColor: Color.fromRGBO(91, 123, 238, 1)),
+                labelStyle: buildlabelStyle(),
+                hintStyle: buildHintStyle(),
+                focusColor: buildColor()),
             keyboardType: TextInputType.name,
-            textInputAction: TextInputAction.done,
+            textInputAction: buildTextInputAction(),
           ),
         );
     //Occupation textFiled
     Widget buildOccupation() => Padding(
-          padding: EdgeInsets.symmetric(horizontal: height * 0.04),
+          padding: buildPadding(),
           child: TextField(
             controller: userOccupation,
-            decoration: const InputDecoration(
-                enabledBorder: UnderlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Color.fromRGBO(91, 123, 238, 1)),
-                ),
+            decoration: InputDecoration(
+                enabledBorder: buildUnderLineBorder(),
                 hintText: 'Enter your occupation',
                 labelText: 'Occupation',
-                labelStyle: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromRGBO(91, 123, 238, 1),
-                ),
-                hintStyle: TextStyle(
-                  fontSize: 12,
-                  color: Color.fromRGBO(91, 123, 238, 1),
-                ),
-                focusColor: Color.fromRGBO(91, 123, 238, 1)),
+                labelStyle: buildlabelStyle(),
+                hintStyle: buildHintStyle(),
+                focusColor: buildColor()),
             keyboardType: TextInputType.text,
-            textInputAction: TextInputAction.done,
+            textInputAction: buildTextInputAction(),
           ),
         );
     //Email textFiled
     Widget buildEmail() => Padding(
-          padding: EdgeInsets.symmetric(horizontal: height * 0.04),
+          padding: buildPadding(),
           child: TextField(
             controller: userEmail,
-            decoration: const InputDecoration(
-                enabledBorder: UnderlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Color.fromRGBO(91, 123, 238, 1)),
-                ),
+            decoration: InputDecoration(
+                enabledBorder: buildUnderLineBorder(),
                 hintText: 'Enter your email',
                 labelText: 'Email',
-                labelStyle: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromRGBO(91, 123, 238, 1),
-                ),
-                hintStyle: TextStyle(
-                  fontSize: 12,
-                  color: Color.fromRGBO(91, 123, 238, 1),
-                ),
-                focusColor: Color.fromRGBO(91, 123, 238, 1)),
+                labelStyle: buildlabelStyle(),
+                hintStyle: buildHintStyle(),
+                focusColor: buildColor()),
             keyboardType: TextInputType.emailAddress,
-            textInputAction: TextInputAction.done,
+            textInputAction: buildTextInputAction(),
           ),
         );
     //Password textFiled
     Widget buildPassword() => Padding(
-          padding: EdgeInsets.symmetric(horizontal: height * 0.04),
+          padding: buildPadding(),
           child: TextField(
             controller: userPassword,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               labelText: 'Password',
               hintText: 'Enter your password',
-              labelStyle: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Color.fromRGBO(91, 123, 238, 1),
-              ),
-              hintStyle: TextStyle(
-                fontSize: 12,
-                color: Color.fromRGBO(91, 123, 238, 1),
-              ),
-              focusColor: Color.fromRGBO(91, 123, 238, 1),
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Color.fromRGBO(91, 123, 238, 1)),
-              ),
+              labelStyle: buildlabelStyle(),
+              hintStyle: buildHintStyle(),
+              focusColor: buildColor(),
+              enabledBorder: buildUnderLineBorder(),
             ),
             obscureText: true,
           ),
         );
     //Password textFiled
     Widget buildConfirmPassword() => Padding(
-          padding: EdgeInsets.symmetric(horizontal: height * 0.04),
+          padding: buildPadding(),
           child: TextField(
             controller: confirmPassword,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               labelText: 'Confirm Password',
               hintText: 'Confirm your password',
-              labelStyle: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Color.fromRGBO(91, 123, 238, 1),
-              ),
-              hintStyle: TextStyle(
-                fontSize: 12,
-                color: Color.fromRGBO(91, 123, 238, 1),
-              ),
-              focusColor: Color.fromRGBO(91, 123, 238, 1),
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Color.fromRGBO(91, 123, 238, 1)),
-              ),
+              labelStyle: buildlabelStyle(),
+              hintStyle: buildHintStyle(),
+              focusColor: buildColor(),
+              enabledBorder: buildUnderLineBorder(),
             ),
             obscureText: true,
           ),
         ); //Occupation textFiled
     Widget buildUserPhone() => Padding(
-          padding: EdgeInsets.symmetric(horizontal: height * 0.04),
+          padding: buildPadding(),
           child: TextField(
             controller: userPhone,
-            decoration: const InputDecoration(
-              fillColor: Color.fromRGBO(91, 123, 238, 1),
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Color.fromRGBO(91, 123, 238, 1)),
-              ),
+            decoration: InputDecoration(
+              fillColor: buildColor(),
+              enabledBorder: buildUnderLineBorder(),
               labelText: 'Mobile number',
-              focusColor: Color.fromRGBO(91, 123, 238, 1),
+              focusColor: buildColor(),
               hintText: '011*******',
-              labelStyle: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Color.fromRGBO(91, 123, 238, 1),
-              ),
-              hintStyle: TextStyle(
-                fontSize: 12,
-                color: Color.fromRGBO(91, 123, 238, 1),
-              ),
+              labelStyle: buildlabelStyle(),
+              hintStyle: buildHintStyle(),
             ),
             keyboardType: TextInputType.number,
-            textInputAction: TextInputAction.done,
+            textInputAction: buildTextInputAction(),
           ),
         );
     void Validation() {
       //Name validation
       if ((userName.text).isWhitespace()) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: Colors.red,
             content: Text('Enter a valid name...',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17))));
@@ -187,7 +164,7 @@ class _SignUpState extends State<SignUp> {
       }
       //Occupation validation
       if ((userOccupation.text).isWhitespace()) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: Colors.red,
             content: Text('Enter a valid Occupation...',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17))));
@@ -195,7 +172,7 @@ class _SignUpState extends State<SignUp> {
       }
       //Email Validation
       if (!(userEmail.text).isValidEmail()) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: Colors.red,
             content: Text('Enter a valid email...',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17))));
@@ -203,7 +180,7 @@ class _SignUpState extends State<SignUp> {
       }
       // Password validation
       if ((userPassword.text).isWhitespace()) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: Colors.red,
             content: Text('Enter a valid password...',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17))));
@@ -211,7 +188,7 @@ class _SignUpState extends State<SignUp> {
       }
       // Confirm Password validation
       if ((userPassword.text) != (confirmPassword.text)) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: Colors.red,
             content: Text('Your password is not same',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17))));
@@ -219,7 +196,7 @@ class _SignUpState extends State<SignUp> {
       }
       //User phone number Validation
       if (!(userPhone.text).isValidInt() || (userPhone.text).length < 7) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: Colors.red,
             content: Text('Enter a valid number',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17))));
@@ -227,7 +204,7 @@ class _SignUpState extends State<SignUp> {
       }
       //User agreement on terms and conditions
       if (!checkBoxValu) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: Colors.red,
             content: Text('Agree to proceed',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17))));
@@ -236,7 +213,7 @@ class _SignUpState extends State<SignUp> {
       //If all User input is valid go to app
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const HomePage()),
+        MaterialPageRoute(builder: (context) => HomePage()),
       );
     }
 
@@ -244,10 +221,10 @@ class _SignUpState extends State<SignUp> {
       Scaffold(
           appBar: AppBar(
             elevation: 0,
-            backgroundColor: const Color(0xffC1CDED),
+            backgroundColor: Color(0xffC1CDED),
           ),
           body: Container(
-            color: const Color(0xffC1CDED),
+            color: Color(0xffC1CDED),
             height: height,
             width: width,
             child: SingleChildScrollView(
@@ -255,12 +232,12 @@ class _SignUpState extends State<SignUp> {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(bottom: 9, top: height * 0.18),
-                    child: const Text(
+                    child: Text(
                       'Sign Up',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 40,
-                          color: Color.fromRGBO(91, 123, 238, 1)),
+                          color: buildColor()),
                     ),
                   ),
                   buildName(),
@@ -283,14 +260,13 @@ class _SignUpState extends State<SignUp> {
                         RichText(
                           text: TextSpan(
                             text: "I agree to all Statements in \n",
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: Colors.black,
                             ),
                             children: <TextSpan>[
                               TextSpan(
                                 text: ' Terms & Conditions',
-                                style: const TextStyle(
-                                    color: Color.fromRGBO(91, 123, 238, 1)),
+                                style: TextStyle(color: buildColor()),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {},
                               ),
@@ -302,14 +278,14 @@ class _SignUpState extends State<SignUp> {
                   ),
                   //Sign up button to validate and go to App
                   Padding(
-                    padding: const EdgeInsets.only(right: 15),
+                    padding: EdgeInsets.only(right: 15),
                     child: Align(
                       alignment: Alignment.centerRight,
                       child: IconButton(
                           onPressed: () {
                             Validation();
                           },
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.arrow_forward_outlined,
                             color: Color(0xff0030DD),
                             size: 40,
@@ -320,7 +296,7 @@ class _SignUpState extends State<SignUp> {
               ),
             ),
           )),
-      const Positioned(
+      Positioned(
         top: -80,
         left: -10,
         //right: ,
@@ -329,7 +305,7 @@ class _SignUpState extends State<SignUp> {
           radius: 95,
         ),
       ),
-      const Positioned(
+      Positioned(
         top: 8,
         left: -80,
         child: CircleAvatar(
@@ -342,17 +318,27 @@ class _SignUpState extends State<SignUp> {
           left: 20,
           child: Material(
             child: Container(
-              color: const Color.fromARGB(184, 86, 117, 231),
+              color: Color.fromARGB(184, 86, 117, 231),
               child: IconButton(
                 style: ElevatedButton.styleFrom(),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                icon: const Icon(Icons.arrow_back),
-                color: const Color(0xff0030DD),
+                icon: Icon(Icons.arrow_back),
+                color: Color(0xff0030DD),
               ),
             ),
           ))
     ]);
   }
 }
+
+Widget buildPositionAvatarCircle(double top, double left) => Positioned(
+      top: -80,
+      left: -10,
+      //right: ,
+      child: CircleAvatar(
+        backgroundColor: Color.fromARGB(184, 86, 117, 231),
+        radius: 95,
+      ),
+    );
