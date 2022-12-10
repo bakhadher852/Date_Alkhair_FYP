@@ -3,7 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
-  const Login({super.key});
+  Login({super.key});
 
   @override
   State<Login> createState() => _LoginState();
@@ -13,9 +13,16 @@ class _LoginState extends State<Login> {
   @override
   @override
   Widget build(BuildContext context) {
-    var AppbarHeight = AppBar().preferredSize.height;
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
+    //short cut
+    buildTitleText(String text) => Text(
+          text,
+          style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 40,
+              color: Color.fromARGB(206, 33, 149, 243)),
+        );
     return Stack(children: [
       Scaffold(
           appBar: AppBar(
@@ -35,21 +42,9 @@ class _LoginState extends State<Login> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(left: width * 0.17),
-                    child: const Text(
-                      'DATA',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 40,
-                          color: Color.fromARGB(206, 33, 149, 243)),
-                    ),
+                    child: buildTitleText('DATA'),
                   ),
-                  const Text(
-                    'Al-Khair',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 40,
-                        color: Color.fromARGB(206, 33, 149, 243)),
-                  ),
+                  buildTitleText('Al-Khair'),
                   Padding(
                     padding: EdgeInsets.all(width * 0.10),
                     child: const TextField(
@@ -62,7 +57,8 @@ class _LoginState extends State<Login> {
                     borderRadius: BorderRadius.circular(100),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromARGB(255, 166, 193, 222),
+                          backgroundColor:
+                              const Color.fromARGB(255, 166, 193, 222),
                           elevation: 7),
                       onPressed: () {},
                       child: Padding(
@@ -78,12 +74,13 @@ class _LoginState extends State<Login> {
                     borderRadius: BorderRadius.circular(100),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromARGB(255, 143, 185, 230),
+                          backgroundColor:
+                              const Color.fromARGB(255, 143, 185, 230),
                           elevation: 7),
                       onPressed: () {},
                       child: Padding(
                         padding: EdgeInsets.symmetric(horizontal: width * 0.16),
-                        child: const Text('LOGIN with OTP',
+                        child: const Text('LOGIN with Email',
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold)),
@@ -95,15 +92,17 @@ class _LoginState extends State<Login> {
                     child: RichText(
                       text: TextSpan(
                         text: "Haven't Register? ",
-                        style: TextStyle(color: Colors.black, fontSize: 18),
+                        style:
+                            const TextStyle(color: Colors.black, fontSize: 18),
                         children: <TextSpan>[
                           TextSpan(
                               text: ' Sign Up',
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () => Navigator.of(context)
                                     .pushNamed(SignUp.RouteName)),
-                          TextSpan(text: ' Now', style: TextStyle()),
+                          const TextSpan(text: ' Now', style: TextStyle()),
                         ],
                       ),
                     ),
