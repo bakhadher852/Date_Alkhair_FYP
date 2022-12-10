@@ -1,11 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:date_alkhair/screen/History.dart';
-import 'package:date_alkhair/screen/Home_page.dart';
-import 'package:date_alkhair/screen/RequestPage.dart';
-import 'package:date_alkhair/screen/donatePage.dart';
-import 'package:date_alkhair/screen/login.dart';
-import 'package:date_alkhair/screen/signUp.dart';
+import 'package:Data_alkhair/screen/History.dart';
+import 'package:Data_alkhair/screen/Home_page.dart';
+import 'package:Data_alkhair/screen/RequestPage.dart';
+import 'package:Data_alkhair/screen/donatePage.dart';
+import 'package:Data_alkhair/screen/signUp.dart';
 import 'package:flutter/material.dart';
 
 void main() {
