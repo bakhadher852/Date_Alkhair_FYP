@@ -1,10 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class Earned extends StatelessWidget {
   const Earned({super.key});
-
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
