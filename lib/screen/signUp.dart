@@ -281,7 +281,7 @@ class _SignUpState extends State<SignUp> {
                             }),
                         RichText(
                           text: TextSpan(
-                            text: "I agree to all Statements in ",
+                            text: "I agree to all Statements in \n",
                             style: const TextStyle(
                               color: Colors.black,
                             ),

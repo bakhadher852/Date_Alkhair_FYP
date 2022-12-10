@@ -4,6 +4,7 @@ import 'package:Data_alkhair/screen/History.dart';
 import 'package:Data_alkhair/screen/Home_page.dart';
 import 'package:Data_alkhair/screen/RequestPage.dart';
 import 'package:Data_alkhair/screen/donatePage.dart';
+import 'package:Data_alkhair/screen/login.dart';
 import 'package:Data_alkhair/screen/signUp.dart';
 import 'package:flutter/material.dart';
 
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
       ),
       //home: const HomePage(),
       routes: {
-        '/': (context) => HomePage(),
+        '/': (context) => Login(),
         DonatePage.RouteName: (_) => DonatePage(),
         RequestPage.RouteName: (_) => RequestPage(),
         HistoryPage.RouteName: (_) => HistoryPage(),
