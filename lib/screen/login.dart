@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors_in_immutables
+
 import 'package:Data_alkhair/screen/signUp.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +31,7 @@ class _LoginState extends State<Login> {
             elevation: 0,
             backgroundColor: const Color(0xffC1CDED),
           ),
-          body: Container(
+          body: SizedBox(
             height: height,
             width: width,
             child: SingleChildScrollView(
@@ -57,7 +59,8 @@ class _LoginState extends State<Login> {
                     borderRadius: BorderRadius.circular(100),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromARGB(85, 60, 99, 239),
+                          backgroundColor:
+                              const Color.fromARGB(85, 60, 99, 239),
                           elevation: 7),
                       onPressed: () {},
                       child: Padding(
@@ -73,7 +76,8 @@ class _LoginState extends State<Login> {
                     borderRadius: BorderRadius.circular(100),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromARGB(25, 60, 99, 239),
+                          backgroundColor:
+                              const Color.fromARGB(25, 60, 99, 239),
                           elevation: 7),
                       onPressed: () {},
                       child: Padding(

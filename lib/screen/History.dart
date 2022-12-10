@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, constant_identifier_names
+
 import 'package:flutter/material.dart';
 
 import '../widget/Donated.dart';
@@ -34,7 +36,7 @@ class HistoryPage extends StatelessWidget {
             ],
           ),
         ),
-        body: TabBarView(
+        body: const TabBarView(
           children: [
             Earned(),
             Donated(),

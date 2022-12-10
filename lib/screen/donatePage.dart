@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, constant_identifier_names
 // ignore_for_file: prefer_const_literals_to_create_immutables, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
@@ -306,14 +306,14 @@ class _DonatePageState extends State<DonatePage> {
           left: 20,
           child: Material(
             child: Container(
-              color: Color.fromARGB(184, 86, 117, 231),
+              color: const Color.fromARGB(184, 86, 117, 231),
               child: IconButton(
                 style: ElevatedButton.styleFrom(),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                icon: Icon(Icons.arrow_back),
-                color: Color(0xff0030DD),
+                icon: const Icon(Icons.arrow_back),
+                color: const Color(0xff0030DD),
               ),
             ),
           ))

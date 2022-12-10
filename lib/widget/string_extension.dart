@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_this
+
 extension StringExtensions on String {
   bool isValidEmail() {
     return RegExp(

@@ -1,8 +1,10 @@
+// ignore_for_file: constant_identifier_names, non_constant_identifier_names, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class RequestPage extends StatefulWidget {
   static const RouteName = '/RequestPage';
-  RequestPage({super.key});
+  const RequestPage({super.key});
 
   @override
   State<RequestPage> createState() => _RequestPageState();

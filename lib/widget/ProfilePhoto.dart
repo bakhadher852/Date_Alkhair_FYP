@@ -1,4 +1,4 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, avoid_print
 
 import 'dart:io';
 
@@ -34,8 +34,6 @@ class _ProfilePhotoState extends State<ProfilePhoto> {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
     final color = Theme.of(context).colorScheme.primary;
 
     return Center(

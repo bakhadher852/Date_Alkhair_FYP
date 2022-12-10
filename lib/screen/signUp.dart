@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:Data_alkhair/widget/string_extension.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +24,6 @@ class _SignUpState extends State<SignUp> {
   bool checkBoxValu = false;
   @override
   Widget build(BuildContext context) {
-    var AppbarHeight = AppBar().preferredSize.height;
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
 
@@ -59,6 +60,7 @@ class _SignUpState extends State<SignUp> {
                 style: const TextStyle(
                     fontWeight: FontWeight.bold, fontSize: 17))));
     //short cut TextFieldDecoration
+    // ignore: non_constant_identifier_names
     builTextFieldDecoration(String Hint, String Lable) => InputDecoration(
         enabledBorder: buildUnderLineBorder(),
         hintText: Hint,

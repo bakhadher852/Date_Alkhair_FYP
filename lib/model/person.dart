@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 class Person {
   late final String company;
   final String name;

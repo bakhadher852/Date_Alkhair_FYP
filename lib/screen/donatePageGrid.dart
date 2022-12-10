@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, camel_case_types, prefer_const_constructors_in_immutables, non_constant_identifier_names
 import 'package:flutter/material.dart';
 
 class donatePageGrid extends StatefulWidget {
