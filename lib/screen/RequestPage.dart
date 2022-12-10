@@ -92,7 +92,7 @@ class _RequestPageState extends State<RequestPage> {
                         child: Text(
                           'How much data you need',
                           style: TextStyle(
-                            fontSize: 25,
+                            fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: Color(0xff0030DD),
                           ),
@@ -109,7 +109,7 @@ class _RequestPageState extends State<RequestPage> {
                         const Text(
                           'data',
                           style:
-                              TextStyle(fontSize: 23, color: Color(0xff0030DD)),
+                              TextStyle(fontSize: 20, color: Color(0xff0030DD)),
                         ),
                         Row(
                           //has the add and minus icons
@@ -129,7 +129,7 @@ class _RequestPageState extends State<RequestPage> {
                             Text(
                               '$_currentSliderValue GB',
                               style: const TextStyle(
-                                  fontSize: 22, color: Color(0xff0030DD)),
+                                  fontSize: 20, color: Color(0xff0030DD)),
                             ),
                             IconButton(
                               onPressed: () {
@@ -176,7 +176,7 @@ class _RequestPageState extends State<RequestPage> {
                       child: Text(
                         'Select ...',
                         style:
-                            TextStyle(fontSize: 23, color: Color(0xff0030DD)),
+                            TextStyle(fontSize: 20, color: Color(0xff0030DD)),
                       ),
                     ),
                     elevation: 20,
@@ -190,7 +190,7 @@ class _RequestPageState extends State<RequestPage> {
                           child: Text(
                             value,
                             style: const TextStyle(
-                                fontSize: 23, color: Color(0xff0030DD)),
+                                fontSize: 20, color: Color(0xff0030DD)),
                           ),
                         ),
                       );
@@ -215,7 +215,7 @@ class _RequestPageState extends State<RequestPage> {
                       child: Text(
                         'Your Reason',
                         style:
-                            TextStyle(fontSize: 23, color: Color(0xff0030DD)),
+                            TextStyle(fontSize: 20, color: Color(0xff0030DD)),
                       ),
                     ),
                     elevation: 20,
@@ -252,7 +252,7 @@ class _RequestPageState extends State<RequestPage> {
                       child: Text(
                         'Request',
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
@@ -271,7 +271,7 @@ class _RequestPageState extends State<RequestPage> {
         //right: ,
         child: CircleAvatar(
           backgroundColor: Color.fromARGB(184, 86, 117, 231),
-          radius: 105,
+          radius: 90,
         ),
       ),
       const Positioned(
@@ -279,7 +279,7 @@ class _RequestPageState extends State<RequestPage> {
         left: -80,
         child: CircleAvatar(
           backgroundColor: Color.fromARGB(184, 86, 117, 231),
-          radius: 105,
+          radius: 90,
         ),
       ),
       Positioned(

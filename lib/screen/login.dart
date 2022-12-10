@@ -118,7 +118,7 @@ class _LoginState extends State<Login> {
         //right: ,
         child: CircleAvatar(
           backgroundColor: Color.fromARGB(184, 86, 117, 231),
-          radius: 105,
+          radius: 90,
         ),
       ),
       const Positioned(
@@ -126,7 +126,7 @@ class _LoginState extends State<Login> {
         left: -80,
         child: CircleAvatar(
           backgroundColor: Color.fromARGB(184, 86, 117, 231),
-          radius: 105,
+          radius: 90,
         ),
       ),
     ]);

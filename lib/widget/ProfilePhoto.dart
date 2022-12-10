@@ -61,13 +61,13 @@ class _ProfilePhotoState extends State<ProfilePhoto> {
           ? Ink.image(
               image: myimage,
               fit: BoxFit.cover,
-              width: 120,
-              height: 120,
+              width: 115,
+              height: 115,
             )
           : Image.file(
               _image!,
-              width: 128,
-              height: 128,
+              width: 115,
+              height: 115,
               fit: BoxFit.cover,
             ),
     ));

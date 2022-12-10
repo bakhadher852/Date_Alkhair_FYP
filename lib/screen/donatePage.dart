@@ -199,7 +199,7 @@ class _DonatePageState extends State<DonatePage> {
                         child: Text(
                           'Select a Person To Donate',
                           style: TextStyle(
-                            fontSize: 25,
+                            fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: Color(0xff0030DD),
                           ),
@@ -289,7 +289,7 @@ class _DonatePageState extends State<DonatePage> {
         //right: ,
         child: CircleAvatar(
           backgroundColor: Color.fromARGB(184, 86, 117, 231),
-          radius: 105,
+          radius: 90,
         ),
       ),
       const Positioned(
@@ -297,7 +297,7 @@ class _DonatePageState extends State<DonatePage> {
         left: -80,
         child: CircleAvatar(
           backgroundColor: Color.fromARGB(184, 86, 117, 231),
-          radius: 105,
+          radius: 90,
         ),
       ),
       Positioned(

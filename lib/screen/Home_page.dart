@@ -1,7 +1,5 @@
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last, prefer_const_literals_to_create_immutables
 
-import 'dart:io';
-
 import 'package:date_alkhair/screen/donatePage.dart';
 import 'package:flutter/material.dart';
 
@@ -31,43 +29,43 @@ class _HomePageState extends State<HomePage> {
           iconTheme: IconThemeData(color: Color.fromARGB(0, 170, 187, 250)),
           bottom: PreferredSize(
               preferredSize: Size.fromHeight(height * 0.27),
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      width: width * 0.2,
-                    ),
-                    Column(
-                      children: [
-                        ProfilePhoto(),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 15),
-                          child: Text(
-                            'Welcome $UserName \n in Data Al-Khair',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.w600,
-                              color: Color.fromARGB(182, 255, 255, 255),
+              child: SizedBox(
+                width: width,
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        width: width * 0.2,
+                      ),
+                      Column(
+                        children: [
+                          ProfilePhoto(),
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 15),
+                            child: Text(
+                              'Welcome $UserName \n in Data Al-Khair',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.w600,
+                                color: Color.fromARGB(182, 255, 255, 255),
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        const Icon(Icons.star),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Text(
-                            '200',
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          const Icon(Icons.star),
+                          Text(
+                            '0',
                             style: Theme.of(context).textTheme.labelMedium,
-                          ),
-                        )
-                      ],
-                    )
-                  ])),
+                          )
+                        ],
+                      )
+                    ]),
+              )),
         ),
         body: SizedBox(
           width: width,
@@ -127,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                       child: Text(
                         'Donate data',
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 20,
                           fontWeight: FontWeight.w600,
                           color: Color(0xff0030DD),
                         ),
@@ -149,7 +147,7 @@ class _HomePageState extends State<HomePage> {
                       child: Text(
                         'Request data',
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 20,
                           fontWeight: FontWeight.w600,
                           color: Color(0xff0030DD),
                         ),
@@ -171,7 +169,7 @@ class _HomePageState extends State<HomePage> {
                       child: Text(
                         'My History',
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 20,
                           fontWeight: FontWeight.w600,
                           color: Color(0xff0030DD),
                         ),
@@ -198,7 +196,7 @@ class _HomePageState extends State<HomePage> {
         left: -10,
         child: CircleAvatar(
           backgroundColor: Color.fromARGB(163, 170, 187, 250),
-          radius: 105,
+          radius: 90,
         ),
       ),
       Positioned(
@@ -206,7 +204,7 @@ class _HomePageState extends State<HomePage> {
         left: -80,
         child: CircleAvatar(
           backgroundColor: Color.fromARGB(163, 170, 187, 250),
-          radius: 105,
+          radius: 90,
         ),
       ),
     ]);
