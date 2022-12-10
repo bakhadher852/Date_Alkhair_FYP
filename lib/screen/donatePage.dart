@@ -290,7 +290,7 @@ class _DonatePageState extends State<DonatePage> {
         //right: ,
         child: CircleAvatar(
           backgroundColor: Color.fromARGB(184, 86, 117, 231),
-          radius: 90,
+          radius: 95,
         ),
       ),
       const Positioned(
@@ -298,7 +298,7 @@ class _DonatePageState extends State<DonatePage> {
         left: -80,
         child: CircleAvatar(
           backgroundColor: Color.fromARGB(184, 86, 117, 231),
-          radius: 90,
+          radius: 95,
         ),
       ),
       Positioned(

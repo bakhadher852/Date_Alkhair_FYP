@@ -22,11 +22,12 @@ class _SignUpState extends State<SignUp> {
   bool checkBoxValu = false;
   @override
   Widget build(BuildContext context) {
-    // print(userEmail.text);
-    // print('=====================================');
     var AppbarHeight = AppBar().preferredSize.height;
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
+
+    // print(width * 0.25);
+    // print('=====================================');
     //Name textFiled
     Widget buildName() => Padding(
           padding: EdgeInsets.symmetric(horizontal: height * 0.04),
@@ -325,7 +326,7 @@ class _SignUpState extends State<SignUp> {
         //right: ,
         child: CircleAvatar(
           backgroundColor: Color.fromARGB(184, 86, 117, 231),
-          radius: 90,
+          radius: 95,
         ),
       ),
       const Positioned(
@@ -333,7 +334,7 @@ class _SignUpState extends State<SignUp> {
         left: -80,
         child: CircleAvatar(
           backgroundColor: Color.fromARGB(184, 86, 117, 231),
-          radius: 90,
+          radius: 95,
         ),
       ),
       Positioned(

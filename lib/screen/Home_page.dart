@@ -196,7 +196,7 @@ class _HomePageState extends State<HomePage> {
         left: -10,
         child: CircleAvatar(
           backgroundColor: Color.fromARGB(163, 170, 187, 250),
-          radius: 90,
+          radius: 95,
         ),
       ),
       Positioned(
@@ -204,7 +204,7 @@ class _HomePageState extends State<HomePage> {
         left: -80,
         child: CircleAvatar(
           backgroundColor: Color.fromARGB(163, 170, 187, 250),
-          radius: 90,
+          radius: 95,
         ),
       ),
     ]);
