@@ -28,7 +28,7 @@ class _SignUpState extends State<SignUp> {
 
     // print(width * 0.25);
     // print('=====================================');
-    //Name textFiled
+
     //short cut Color
     Color buildColor() => const Color.fromRGBO(91, 123, 238, 1);
     //short cut UnderLineBorder
@@ -51,23 +51,28 @@ class _SignUpState extends State<SignUp> {
     buildTextInputAction() => TextInputAction.done;
     //short cut padding
     buildPadding() => EdgeInsets.symmetric(horizontal: height * 0.04);
-    //short cut UnderLineBorder
-    //short cut UnderLineBorder
-    //short cut UnderLineBorder
-    //short cut UnderLineBorder
-    //short cut UnderLineBorder
+    //short cut errorSnackBarMeassage
+    builderrorSnackBarMeassage(String message) =>
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            backgroundColor: Colors.red,
+            content: Text(message,
+                style: const TextStyle(
+                    fontWeight: FontWeight.bold, fontSize: 17))));
+    //short cut TextFieldDecoration
+    builTextFieldDecoration(String Hint, String Lable) => InputDecoration(
+        enabledBorder: buildUnderLineBorder(),
+        hintText: Hint,
+        labelText: Lable,
+        labelStyle: buildlabelStyle(),
+        hintStyle: buildHintStyle(),
+        focusColor: buildColor());
 
+    //Name textFiled
     Widget buildName() => Padding(
           padding: buildPadding(),
           child: TextField(
             controller: userName,
-            decoration: InputDecoration(
-                enabledBorder: buildUnderLineBorder(),
-                hintText: 'Enter your name',
-                labelText: 'Name',
-                labelStyle: buildlabelStyle(),
-                hintStyle: buildHintStyle(),
-                focusColor: buildColor()),
+            decoration: builTextFieldDecoration('Enter your name', 'Name'),
             keyboardType: TextInputType.name,
             textInputAction: buildTextInputAction(),
           ),
@@ -77,13 +82,8 @@ class _SignUpState extends State<SignUp> {
           padding: buildPadding(),
           child: TextField(
             controller: userOccupation,
-            decoration: InputDecoration(
-                enabledBorder: buildUnderLineBorder(),
-                hintText: 'Enter your occupation',
-                labelText: 'Occupation',
-                labelStyle: buildlabelStyle(),
-                hintStyle: buildHintStyle(),
-                focusColor: buildColor()),
+            decoration:
+                builTextFieldDecoration('Enter your occupation', 'Occupation'),
             keyboardType: TextInputType.text,
             textInputAction: buildTextInputAction(),
           ),
@@ -93,13 +93,7 @@ class _SignUpState extends State<SignUp> {
           padding: buildPadding(),
           child: TextField(
             controller: userEmail,
-            decoration: InputDecoration(
-                enabledBorder: buildUnderLineBorder(),
-                hintText: 'Enter your email',
-                labelText: 'Email',
-                labelStyle: buildlabelStyle(),
-                hintStyle: buildHintStyle(),
-                focusColor: buildColor()),
+            decoration: builTextFieldDecoration('Enter your email', 'Email'),
             keyboardType: TextInputType.emailAddress,
             textInputAction: buildTextInputAction(),
           ),
@@ -109,14 +103,8 @@ class _SignUpState extends State<SignUp> {
           padding: buildPadding(),
           child: TextField(
             controller: userPassword,
-            decoration: InputDecoration(
-              labelText: 'Password',
-              hintText: 'Enter your password',
-              labelStyle: buildlabelStyle(),
-              hintStyle: buildHintStyle(),
-              focusColor: buildColor(),
-              enabledBorder: buildUnderLineBorder(),
-            ),
+            decoration:
+                builTextFieldDecoration('Enter your password', 'Password'),
             obscureText: true,
           ),
         );
@@ -125,14 +113,8 @@ class _SignUpState extends State<SignUp> {
           padding: buildPadding(),
           child: TextField(
             controller: confirmPassword,
-            decoration: InputDecoration(
-              labelText: 'Confirm Password',
-              hintText: 'Confirm your password',
-              labelStyle: buildlabelStyle(),
-              hintStyle: buildHintStyle(),
-              focusColor: buildColor(),
-              enabledBorder: buildUnderLineBorder(),
-            ),
+            decoration: builTextFieldDecoration(
+                'Confirm your password', 'Confirm Password'),
             obscureText: true,
           ),
         ); //Occupation textFiled
@@ -140,91 +122,71 @@ class _SignUpState extends State<SignUp> {
           padding: buildPadding(),
           child: TextField(
             controller: userPhone,
-            decoration: InputDecoration(
-              fillColor: buildColor(),
-              enabledBorder: buildUnderLineBorder(),
-              labelText: 'Mobile number',
-              focusColor: buildColor(),
-              hintText: '011*******',
-              labelStyle: buildlabelStyle(),
-              hintStyle: buildHintStyle(),
-            ),
+            decoration: builTextFieldDecoration('011*******', 'Mobile number'),
             keyboardType: TextInputType.number,
             textInputAction: buildTextInputAction(),
           ),
         );
+    // ignore: non_constant_identifier_names
     void Validation() {
       //Name validation
       if ((userName.text).isWhitespace()) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            backgroundColor: Colors.red,
-            content: Text('Enter a valid name...',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17))));
+        builderrorSnackBarMeassage('Enter a valid name...');
         return;
       }
       //Occupation validation
       if ((userOccupation.text).isWhitespace()) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            backgroundColor: Colors.red,
-            content: Text('Enter a valid Occupation...',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17))));
+        builderrorSnackBarMeassage('Enter a valid Occupation...');
         return;
       }
       //Email Validation
       if (!(userEmail.text).isValidEmail()) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            backgroundColor: Colors.red,
-            content: Text('Enter a valid email...',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17))));
+        builderrorSnackBarMeassage('Enter a valid email...');
         return;
       }
       // Password validation
       if ((userPassword.text).isWhitespace()) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            backgroundColor: Colors.red,
-            content: Text('Enter a valid password...',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17))));
+        builderrorSnackBarMeassage('Enter a valid password...');
         return;
       }
       // Confirm Password validation
       if ((userPassword.text) != (confirmPassword.text)) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            backgroundColor: Colors.red,
-            content: Text('Your password is not same',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17))));
+        builderrorSnackBarMeassage('Your password is not same');
         return;
       }
       //User phone number Validation
       if (!(userPhone.text).isValidInt() || (userPhone.text).length < 7) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            backgroundColor: Colors.red,
-            content: Text('Enter a valid number',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17))));
+        builderrorSnackBarMeassage('Enter a valid number');
         return;
       }
       //User agreement on terms and conditions
       if (!checkBoxValu) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            backgroundColor: Colors.red,
-            content: Text('Agree to proceed',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17))));
+        builderrorSnackBarMeassage('Agree to proceed');
         return;
       }
       //If all User input is valid go to app
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => HomePage()),
+        MaterialPageRoute(builder: (context) => const HomePage()),
       );
     }
+
+    //short cut
+    Color buildstackColor() => const Color(0xffC1CDED);
+    //short cut
+    Widget buildCircleAvatar() => const CircleAvatar(
+          backgroundColor: Color.fromARGB(184, 86, 117, 231),
+          radius: 95,
+        );
 
     return Stack(children: [
       Scaffold(
           appBar: AppBar(
             elevation: 0,
-            backgroundColor: Color(0xffC1CDED),
+            backgroundColor: buildstackColor(),
           ),
           body: Container(
-            color: Color(0xffC1CDED),
+            color: buildstackColor(),
             height: height,
             width: width,
             child: SingleChildScrollView(
@@ -260,7 +222,7 @@ class _SignUpState extends State<SignUp> {
                         RichText(
                           text: TextSpan(
                             text: "I agree to all Statements in \n",
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.black,
                             ),
                             children: <TextSpan>[
@@ -278,14 +240,14 @@ class _SignUpState extends State<SignUp> {
                   ),
                   //Sign up button to validate and go to App
                   Padding(
-                    padding: EdgeInsets.only(right: 15),
+                    padding: const EdgeInsets.only(right: 15),
                     child: Align(
                       alignment: Alignment.centerRight,
                       child: IconButton(
                           onPressed: () {
                             Validation();
                           },
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.arrow_forward_outlined,
                             color: Color(0xff0030DD),
                             size: 40,
@@ -300,45 +262,29 @@ class _SignUpState extends State<SignUp> {
         top: -80,
         left: -10,
         //right: ,
-        child: CircleAvatar(
-          backgroundColor: Color.fromARGB(184, 86, 117, 231),
-          radius: 95,
-        ),
+        child: buildCircleAvatar(),
       ),
       Positioned(
         top: 8,
         left: -80,
-        child: CircleAvatar(
-          backgroundColor: Color.fromARGB(184, 86, 117, 231),
-          radius: 95,
-        ),
+        child: buildCircleAvatar(),
       ),
       Positioned(
           top: height * 0.16,
           left: 20,
           child: Material(
             child: Container(
-              color: Color.fromARGB(184, 86, 117, 231),
+              color: const Color.fromARGB(184, 86, 117, 231),
               child: IconButton(
                 style: ElevatedButton.styleFrom(),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                icon: Icon(Icons.arrow_back),
-                color: Color(0xff0030DD),
+                icon: const Icon(Icons.arrow_back),
+                color: const Color(0xff0030DD),
               ),
             ),
           ))
     ]);
   }
 }
-
-Widget buildPositionAvatarCircle(double top, double left) => Positioned(
-      top: -80,
-      left: -10,
-      //right: ,
-      child: CircleAvatar(
-        backgroundColor: Color.fromARGB(184, 86, 117, 231),
-        radius: 95,
-      ),
-    );
