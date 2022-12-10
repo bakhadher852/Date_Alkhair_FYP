@@ -21,7 +21,7 @@ class _LoginState extends State<Login> {
           style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 40,
-              color: Color.fromARGB(206, 33, 149, 243)),
+              color: Color.fromRGBO(91, 123, 238, 1)),
         );
     return Stack(children: [
       Scaffold(
@@ -57,8 +57,7 @@ class _LoginState extends State<Login> {
                     borderRadius: BorderRadius.circular(100),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromARGB(255, 166, 193, 222),
+                          backgroundColor: Color.fromARGB(85, 60, 99, 239),
                           elevation: 7),
                       onPressed: () {},
                       child: Padding(
@@ -74,8 +73,7 @@ class _LoginState extends State<Login> {
                     borderRadius: BorderRadius.circular(100),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromARGB(255, 143, 185, 230),
+                          backgroundColor: Color.fromARGB(25, 60, 99, 239),
                           elevation: 7),
                       onPressed: () {},
                       child: Padding(
