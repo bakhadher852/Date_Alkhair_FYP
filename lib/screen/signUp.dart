@@ -167,10 +167,12 @@ class _SignUpState extends State<SignUp> {
         return;
       }
       //If all User input is valid go to app
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const HomePage()),
-      );
+      Navigator.pushNamed(context, HomePage.RouteName,
+          arguments: userName.text);
+      // Navigator.pushReplacement(
+      //   context,
+      //   MaterialPageRoute(builder: (context) => const HomePage()),
+      // );
     }
 
     //short cut

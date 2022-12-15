@@ -10,15 +10,17 @@ import 'donatePage.dart';
 
 class HomePage extends StatefulWidget {
   static const RouteName = '/HomePage';
+
   const HomePage({super.key});
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  String UserName = '';
   @override
   Widget build(BuildContext context) {
+    //geting the username from the signup page
+    final UserName = ModalRoute.of(context)!.settings.arguments as String;
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Stack(children: [

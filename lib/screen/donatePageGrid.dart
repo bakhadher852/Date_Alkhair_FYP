@@ -70,6 +70,7 @@ class _donatePageGridState extends State<donatePageGrid> {
                                         child: const Text('Yes')),
                                     TextButton(
                                         onPressed: () {
+                                          //in case press No no thing will happen
                                           Navigator.of(context).pop();
                                         },
                                         child: const Text('No'))
