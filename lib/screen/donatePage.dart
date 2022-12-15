@@ -17,7 +17,7 @@ class DonatePage extends StatefulWidget {
 
 class _DonatePageState extends State<DonatePage> {
   List pepolListFiltered = [];
-  final List pepolList = [
+  static const List pepolList = [
     {
       'id': 1,
       'company': 'Umobile',
