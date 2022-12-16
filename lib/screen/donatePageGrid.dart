@@ -121,19 +121,3 @@ class donatePageGrid extends StatelessWidget {
         ));
   }
 }
-
-Widget ListViewBuilderBox(Widget child) {
-  return Container(
-      margin: const EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(
-          color: Colors.grey,
-        ),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      padding: const EdgeInsetsDirectional.all(10),
-      height: 150,
-      width: 300,
-      child: child);
-}
