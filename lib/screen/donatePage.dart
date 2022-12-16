@@ -2,8 +2,9 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import 'donatePageGrid.dart';
+import '../model/person.dart';
 
 enum FilterOptions { All, Umobile, XoX, Maxis }
 
@@ -16,170 +17,23 @@ class DonatePage extends StatefulWidget {
 }
 
 class _DonatePageState extends State<DonatePage> {
-  List pepolListFiltered = [];
-  static const List pepolList = [
-    {
-      'id': 1,
-      'company': 'Umobile',
-      'name': 'Khalid',
-      'Reason': 'For study',
-      'GB': 2.0,
-      'date': 'Today',
-      'phoneNumber': 01162332707
-    },
-    {
-      'id': 2,
-      'company': 'Umobile',
-      'name': 'Farah ',
-      'Reason': 'Work purpose',
-      'GB': 0.5,
-      'date': 'Today',
-      'phoneNumber': 01162332101
-    },
-    {
-      'id': 3,
-      'company': 'Umobile',
-      'name': 'Muaz ',
-      'Reason': 'Others',
-      'GB': 1.5,
-      'date': 'Yesterday',
-      'phoneNumber': 01162332202
-    },
-    {
-      'id': 4,
-      'company': 'Umobile',
-      'name': 'Jalal ',
-      'Reason': 'Others',
-      'GB': 1.0,
-      'date': 'Yesterday',
-      'phoneNumber': 01162332505
-    },
-    {
-      'id': 5,
-      'company': 'Maxis',
-      'name': 'Hajar ',
-      'Reason': 'For study',
-      'GB': 1.0,
-      'date': 'Today',
-      'phoneNumber': 01162332454
-    },
-    {
-      'id': 6,
-      'company': 'Maxis',
-      'name': 'Murad ',
-      'Reason': 'Social media',
-      'GB': 0.5,
-      'date': 'Today',
-      'phoneNumber': 01162332789
-    },
-    {
-      'id': 7,
-      'company': 'Maxis',
-      'name': 'Husna ',
-      'Reason': 'Others',
-      'GB': 1.0,
-      'date': 'Yesterday',
-      'phoneNumber': 01162332025
-    },
-    {
-      'id': 8,
-      'company': 'Maxis',
-      'name': 'Marwan ',
-      'Reason': 'Work purpose',
-      'GB': 1.0,
-      'date': 'Today',
-      'phoneNumber': 01162332700
-    },
-    {
-      'id': 9,
-      'company': 'XoX',
-      'name': 'Iffat ',
-      'Reason': 'For study',
-      'GB': 2.0,
-      'date': 'Today',
-      'phoneNumber': 01162332000
-    },
-  ];
-  bool showAllPepol = false;
-  bool showUmobileOnlyPepol = false;
-  bool showMaxisOnlyPepol = false;
-  bool showXoXOnlyPepol = false;
-
-  @override
-  //in the begining the pepolListFiltered = pepolList;
+  //this list to return the person base on the fillter
   void initState() {
-    pepolListFiltered = pepolList;
+    //if i delete , listen: false will not work the list
+    final list = Provider.of<Persons>(context, listen: false);
+//in the begining the pepolListFiltered = pepolList;
+    list.pepolListFiltered = list.pepolList;
     super.initState();
   }
 
-  // ---------------------------------------------
-  void showAllPepolTrueSetter() {
-    setState(() {
-      showUmobileOnlyPepol = false;
-      showMaxisOnlyPepol = false;
-      showXoXOnlyPepol = false;
-      showAllPepol = true;
-    });
-  }
-
-  void showUmobileOnlyPepolTrueSetter() {
-    setState(() {
-      showAllPepol = false;
-      showMaxisOnlyPepol = false;
-      showXoXOnlyPepol = false;
-      showUmobileOnlyPepol = true;
-    });
-  }
-
-  void showMaxisOnlyPepolTrueSetter() {
-    setState(() {
-      showAllPepol = false;
-      showUmobileOnlyPepol = false;
-      showXoXOnlyPepol = false;
-      showMaxisOnlyPepol = true;
-    });
-  }
-
-  void showXoXOnlyPepolTrueSetter() {
-    setState(() {
-      showAllPepol = false;
-      showUmobileOnlyPepol = false;
-      showMaxisOnlyPepol = false;
-      showXoXOnlyPepol = true;
-    });
-  }
-
-  // ----------------------------------------
-  //this list to return the person base on the fillter
-
   @override
   Widget build(BuildContext context) {
-    var UmobileList =
-        pepolList.where((element) => element['company'] == 'Umobile').toList();
-    var MaxisList =
-        pepolList.where((element) => element['company'] == 'Maxis').toList();
-    var XoXList =
-        pepolList.where((element) => element['company'] == 'XoX').toList();
+    final list = Provider.of<Persons>(context);
+    var FList = list.pepolListFiltered;
 
-    void filteredPepol() {
-      if (showAllPepol) {
-        setState(() {
-          pepolListFiltered = pepolList;
-        });
-      } else if (showUmobileOnlyPepol) {
-        setState(() {
-          pepolListFiltered = UmobileList;
-        });
-      } else if (showMaxisOnlyPepol) {
-        setState(() {
-          pepolListFiltered = MaxisList;
-        });
-      } else if (showXoXOnlyPepol) {
-        setState(() {
-          pepolListFiltered = XoXList;
-        });
-      }
-    }
+    // print(
+    //     '======================pepolListFiltered===============================');
+    // print(FList.length);
 
     var AppbarHeight = AppBar().preferredSize.height;
     final height = MediaQuery.of(context).size.height;
@@ -219,24 +73,16 @@ class _DonatePageState extends State<DonatePage> {
                         onSelected: (FilterOptions selectedValue) {
                           setState(() {
                             if (selectedValue == FilterOptions.All) {
-                              // _showOnlyFavorites = true;
-                              showAllPepolTrueSetter();
-                              filteredPepol();
+                              list.All();
                             }
                             if (selectedValue == FilterOptions.Umobile) {
-                              // _showOnlyFavorites = true;
-                              showUmobileOnlyPepolTrueSetter();
-                              filteredPepol();
+                              list.UmobileList();
                             }
                             if (selectedValue == FilterOptions.XoX) {
-                              // _showOnlyFavorites = true;
-                              showXoXOnlyPepolTrueSetter();
-                              filteredPepol();
+                              list.XoXList();
                             }
                             if (selectedValue == FilterOptions.Maxis) {
-                              // _showOnlyFavorites = true;
-                              showMaxisOnlyPepolTrueSetter();
-                              filteredPepol();
+                              list.MaxisList();
                             }
                           });
                         },
@@ -274,18 +120,128 @@ class _DonatePageState extends State<DonatePage> {
                       ),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    padding: const EdgeInsetsDirectional.all(15),
+                    padding: EdgeInsetsDirectional.all(15),
                     height: height * 0.66 - AppbarHeight,
                     width: width * 0.90,
                     child: ListView.builder(
-                        itemBuilder: (context, i) => donatePageGrid(
-                            phoneNumber: pepolListFiltered[i]['phoneNumber'],
-                            Reason: pepolListFiltered[i]['Reason'],
-                            company: pepolListFiltered[i]['company'],
-                            date: pepolListFiltered[i]['date'],
-                            name: pepolListFiltered[i]['name'],
-                            GB: pepolListFiltered[i]['GB']),
-                        itemCount: pepolListFiltered.length),
+                        itemBuilder: (context, i) {
+                          return Card(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15)),
+                              elevation: 7,
+                              margin:
+                                  const EdgeInsets.only(top: 10, bottom: 10),
+                              color: Theme.of(context).canvasColor,
+                              child: Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          FList[i].name,
+                                          style: const TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        //show dialog to confirm Donation
+                                        TextButton(
+                                            onPressed: () {
+                                              showDialog(
+                                                  context: context,
+                                                  builder: (_) => AlertDialog(
+                                                        title: const Text(
+                                                            'Confirm Donation'),
+                                                        content: const Text(
+                                                            'Did you Donate data ?'),
+                                                        actions: [
+                                                          TextButton(
+                                                              onPressed: () {
+                                                                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                                                                    backgroundColor:
+                                                                        Colors
+                                                                            .blue,
+                                                                    content: Text(
+                                                                        'Thank You for Donation...',
+                                                                        style: TextStyle(
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                            fontSize: 17))));
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .pop();
+                                                                // var ind =
+                                                                //     FList[i].id;
+                                                                list.deletePerosn(
+                                                                    i);
+                                                              },
+                                                              child: const Text(
+                                                                  'Yes')),
+                                                          TextButton(
+                                                              onPressed: () {
+                                                                //in case press No no thing will happen
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .pop();
+                                                              },
+                                                              child: const Text(
+                                                                  'No'))
+                                                        ],
+                                                      ));
+                                            },
+                                            child: const Text(
+                                              'Confirm Donation ',
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold),
+                                            ))
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text('Need ${FList[i].GB} GB'),
+                                          Container(
+                                              margin: const EdgeInsets.only(
+                                                right: 12,
+                                              ),
+                                              child: Text(FList[i].Reason))
+                                        ],
+                                      )),
+                                  Container(
+                                      margin: const EdgeInsets.only(
+                                          right: 9, left: 9, bottom: 15),
+                                      width: double.infinity,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          //show the company name
+                                          Text(
+                                            FList[i].company,
+                                            textAlign: TextAlign.end,
+                                          ), //show the phone number
+                                          Text(FList[i].phoneNumber.toString()),
+                                          Padding(
+                                              padding: const EdgeInsets.only(
+                                                  right: 13),
+                                              //show the date of Request
+                                              child: Text(
+                                                FList[i].date,
+                                                textAlign: TextAlign.end,
+                                              )),
+                                        ],
+                                      ))
+                                ],
+                              ));
+                        },
+                        itemCount: FList.isEmpty ? 0 : FList.length),
                   ),
                 ],
               ),

@@ -26,11 +26,11 @@ class HistoryPage extends StatelessWidget {
             automaticIndicatorColorAdjustment: false,
             tabs: [
               Text(
-                'Earned',
+                'Donated',
                 style: TextStyle(fontSize: 20),
               ),
               Text(
-                'Donated',
+                'Earned',
                 style: TextStyle(fontSize: 20),
               ),
             ],
@@ -38,8 +38,8 @@ class HistoryPage extends StatelessWidget {
         ),
         body: const TabBarView(
           children: [
-            Earned(),
             Donated(),
+            Earned(),
           ],
         ),
       ),

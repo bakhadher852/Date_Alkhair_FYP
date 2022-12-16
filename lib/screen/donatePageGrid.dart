@@ -1,10 +1,14 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, camel_case_types, prefer_const_constructors_in_immutables, non_constant_identifier_names
 import 'package:Data_alkhair/screen/donatePage.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class donatePageGrid extends StatefulWidget {
+import '../model/person.dart';
+
+class donatePageGrid extends StatelessWidget {
   donatePageGrid({
     Key? key,
+    required this.id,
     required this.name,
     required this.GB,
     required this.Reason,
@@ -12,6 +16,7 @@ class donatePageGrid extends StatefulWidget {
     required this.company,
     required this.phoneNumber,
   }) : super(key: key);
+  final int id;
   final String name;
   final double GB;
   final String Reason;
@@ -20,12 +25,11 @@ class donatePageGrid extends StatefulWidget {
   final int phoneNumber;
 
   @override
-  State<donatePageGrid> createState() => _donatePageGridState();
-}
-
-class _donatePageGridState extends State<donatePageGrid> {
-  @override
   Widget build(BuildContext context) {
+    final list = Provider.of<Persons>(context);
+    var FList = list.pepolListFiltered;
+    // print(FList);
+    print('==========================id==============================');
     return Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         elevation: 7,
@@ -39,7 +43,7 @@ class _donatePageGridState extends State<donatePageGrid> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    widget.name,
+                    name,
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -65,6 +69,10 @@ class _donatePageGridState extends State<donatePageGrid> {
                                                           fontWeight:
                                                               FontWeight.bold,
                                                           fontSize: 17))));
+                                          // pepolList.removeAt(id);
+                                          print(
+                                              '===============================');
+                                          // print(pepolList.indexOf());
 
                                           Navigator.of(context).pop();
                                         },
@@ -90,12 +98,12 @@ class _donatePageGridState extends State<donatePageGrid> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Need ${widget.GB} GB'),
+                    Text('Need $GB GB'),
                     Container(
                         margin: const EdgeInsets.only(
                           right: 12,
                         ),
-                        child: Text(widget.Reason))
+                        child: Text(Reason))
                   ],
                 )),
             Container(
@@ -106,15 +114,15 @@ class _donatePageGridState extends State<donatePageGrid> {
                   children: [
                     //show the company name
                     Text(
-                      widget.company,
+                      company,
                       textAlign: TextAlign.end,
                     ), //show the phone number
-                    Text(widget.phoneNumber.toString()),
+                    Text(phoneNumber.toString()),
                     Padding(
                         padding: const EdgeInsets.only(right: 13),
                         //show the date of Request
                         child: Text(
-                          widget.date,
+                          date,
                           textAlign: TextAlign.end,
                         )),
                   ],
