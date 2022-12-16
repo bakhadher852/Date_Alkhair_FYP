@@ -1,9 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, camel_case_types, prefer_const_constructors_in_immutables, non_constant_identifier_names
-import 'package:Data_alkhair/screen/donatePage.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import '../model/person.dart';
 
 class donatePageGrid extends StatelessWidget {
   donatePageGrid({
@@ -26,10 +22,8 @@ class donatePageGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final list = Provider.of<Persons>(context);
-    var FList = list.pepolListFiltered;
     // print(FList);
-    print('==========================id==============================');
+
     return Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         elevation: 7,
@@ -69,10 +63,6 @@ class donatePageGrid extends StatelessWidget {
                                                           fontWeight:
                                                               FontWeight.bold,
                                                           fontSize: 17))));
-                                          // pepolList.removeAt(id);
-                                          print(
-                                              '===============================');
-                                          // print(pepolList.indexOf());
 
                                           Navigator.of(context).pop();
                                         },

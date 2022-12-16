@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first, constant_identifier_names
+// ignore_for_file: public_member_api_docs, sort_constructors_first, constant_identifier_names, annotate_overrides
 // ignore_for_file: prefer_const_literals_to_create_immutables, non_constant_identifier_names
 
 import 'package:flutter/material.dart';

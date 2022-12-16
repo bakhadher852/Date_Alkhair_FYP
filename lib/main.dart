@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
         ),
         //home: const HomePage(),
         routes: {
-          '/': (context) => SignUp(),
+          '/': (context) => Login(),
           DonatePage.RouteName: (_) => DonatePage(),
           RequestPage.RouteName: (_) => RequestPage(),
           HistoryPage.RouteName: (_) => HistoryPage(),

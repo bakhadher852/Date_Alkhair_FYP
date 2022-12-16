@@ -128,11 +128,6 @@ class Persons with ChangeNotifier {
     pepolListFiltered.removeAt(id);
     // History.add(pepolListFiltered[id]);
     notifyListeners();
-    print('=====================deletePersonFunction===============');
-    print(id);
-
-    print('=====================History===============');
-    print(History);
   }
 }
 

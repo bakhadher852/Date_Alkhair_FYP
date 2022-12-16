@@ -1,7 +1,6 @@
 // ignore_for_file: file_names, prefer_const_constructors, non_constant_identifier_names
 
 import 'package:Data_alkhair/model/person.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
