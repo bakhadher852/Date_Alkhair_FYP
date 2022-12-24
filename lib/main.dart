@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       create: (context) => Persons(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Data Al Khair ',
+        title: 'Khair Data sharing',
         theme: ThemeData(
           iconTheme: IconThemeData(size: 30, color: Colors.white70),
           textTheme: TextTheme(

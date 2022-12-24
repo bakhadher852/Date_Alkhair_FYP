@@ -44,9 +44,9 @@ class _LoginState extends State<Login> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(left: width * 0.17),
-                    child: buildTitleText('DATA'),
+                    child: buildTitleText('Khair'),
                   ),
-                  buildTitleText('Al-Khair'),
+                  buildTitleText('Data Sharing'),
                   Padding(
                     padding: EdgeInsets.all(width * 0.10),
                     child: const TextField(

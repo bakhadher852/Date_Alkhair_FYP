@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                           Padding(
                             padding: EdgeInsets.only(bottom: 15),
                             child: Text(
-                              'Welcome $UserName \n in Data Al-Khair',
+                              'Welcome $UserName \n in Khair Data Sharing',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 25,
