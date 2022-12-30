@@ -43,7 +43,7 @@ class _LoginState extends State<Login> {
                     height: height * 0.16,
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: width * 0.17),
+                    padding: EdgeInsets.only(left: width * 0.01),
                     child: buildTitleText('Khair'),
                   ),
                   buildTitleText('Data Sharing'),
