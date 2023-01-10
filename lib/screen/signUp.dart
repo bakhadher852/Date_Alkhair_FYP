@@ -31,7 +31,7 @@ class _SignUpState extends State<SignUp> {
     // print('=====================================');
 
     //short cut Color
-    Color buildColor() => const Color.fromRGBO(91, 123, 238, 1);
+    Color buildColor() => Theme.of(context).primaryColorDark;
     //short cut UnderLineBorder
     InputBorder buildUnderLineBorder() => UnderlineInputBorder(
           borderSide: BorderSide(color: buildColor()),
@@ -176,10 +176,11 @@ class _SignUpState extends State<SignUp> {
     }
 
     //short cut
-    Color buildstackColor() => const Color(0xffC1CDED);
+    Color? buildstackColor() => Theme.of(context).appBarTheme.backgroundColor;
     //short cut
     Widget buildCircleAvatar() => const CircleAvatar(
-          backgroundColor: Color.fromARGB(184, 86, 117, 231),
+          backgroundColor: Color.fromARGB(158, 152, 168, 226),
+          // backgroundColor: Color.fromARGB(184, 86, 117, 231)
           radius: 95,
         );
 
@@ -251,9 +252,9 @@ class _SignUpState extends State<SignUp> {
                           onPressed: () {
                             Validation();
                           },
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.arrow_forward_outlined,
-                            color: Color(0xff0030DD),
+                            color: Theme.of(context).buttonColor,
                             size: 40,
                           )),
                     ),
@@ -274,21 +275,23 @@ class _SignUpState extends State<SignUp> {
         child: buildCircleAvatar(),
       ),
       Positioned(
-          top: height * 0.16,
-          left: 20,
-          child: Material(
-            child: Container(
-              color: const Color.fromARGB(184, 86, 117, 231),
-              child: IconButton(
+        top: height * 0.16,
+        left: 20,
+        child: Material(
+          child: Container(
+            //back arrow button background color
+            color: const Color.fromARGB(158, 152, 168, 226),
+            child: IconButton(
                 style: ElevatedButton.styleFrom(),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
                 icon: const Icon(Icons.arrow_back),
-                color: const Color(0xff0030DD),
-              ),
-            ),
-          ))
+                color: Theme.of(context).buttonColor,
+                iconSize: 35),
+          ),
+        ),
+      )
     ]);
   }
 }

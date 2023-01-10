@@ -18,19 +18,13 @@ class _LoginState extends State<Login> {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     //short cut
-    buildTitleText(String text) => Text(
-          text,
-          style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 40,
-              color: Color.fromRGBO(91, 123, 238, 1)),
-        );
+    buildTitleText(String text) =>
+        Text(text, style: Theme.of(context).textTheme.headline1);
     return Stack(children: [
       Scaffold(
           appBar: AppBar(
-            elevation: 0,
-            backgroundColor: const Color(0xffC1CDED),
-          ),
+              elevation: 0,
+              backgroundColor: Theme.of(context).appBarTheme.backgroundColor),
           body: SizedBox(
             height: height,
             width: width,
@@ -59,8 +53,7 @@ class _LoginState extends State<Login> {
                     borderRadius: BorderRadius.circular(100),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromARGB(85, 60, 99, 239),
+                          backgroundColor: Theme.of(context).iconTheme.color,
                           elevation: 7),
                       onPressed: () {},
                       child: Padding(
@@ -76,16 +69,13 @@ class _LoginState extends State<Login> {
                     borderRadius: BorderRadius.circular(100),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromARGB(25, 60, 99, 239),
+                          backgroundColor: Theme.of(context).iconTheme.color,
                           elevation: 7),
                       onPressed: () {},
                       child: Padding(
                         padding: EdgeInsets.symmetric(horizontal: width * 0.16),
-                        child: const Text('LOGIN with Email',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold)),
+                        child: Text('LOGIN with Email',
+                            style: Theme.of(context).textTheme.button),
                       ),
                     ),
                   ),
@@ -99,8 +89,7 @@ class _LoginState extends State<Login> {
                         children: <TextSpan>[
                           TextSpan(
                               text: ' Sign Up',
-                              style:
-                                  const TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(fontWeight: FontWeight.bold),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () => Navigator.of(context)
                                     .pushNamed(SignUp.RouteName)),
@@ -118,7 +107,7 @@ class _LoginState extends State<Login> {
         left: -10,
         //right: ,
         child: CircleAvatar(
-          backgroundColor: Color.fromARGB(184, 86, 117, 231),
+          backgroundColor: Color.fromARGB(158, 152, 168, 226),
           radius: 95,
         ),
       ),
@@ -126,7 +115,7 @@ class _LoginState extends State<Login> {
         top: 8,
         left: -80,
         child: CircleAvatar(
-          backgroundColor: Color.fromARGB(184, 86, 117, 231),
+          backgroundColor: Color.fromARGB(158, 152, 168, 226),
           radius: 95,
         ),
       ),

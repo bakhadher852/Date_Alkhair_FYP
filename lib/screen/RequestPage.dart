@@ -54,7 +54,7 @@ class _RequestPageState extends State<RequestPage> {
       return;
     }
     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-      backgroundColor: Colors.blue,
+      backgroundColor: Color.fromARGB(158, 152, 168, 226),
       content: Text(
         'Request Successful...',
         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
@@ -72,7 +72,7 @@ class _RequestPageState extends State<RequestPage> {
       Scaffold(
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: const Color(0xffC1CDED),
+          backgroundColor: Theme.of(context).canvasColor,
         ),
         body: ListView(
           children: [
@@ -80,7 +80,7 @@ class _RequestPageState extends State<RequestPage> {
               height: height * 0.21 - AppbarHeight,
             ),
             Container(
-              color: const Color(0xffC1CDED),
+              color: Theme.of(context).canvasColor,
               height: height * 0.77 - AppbarHeight,
               width: width,
               child: Column(
@@ -96,7 +96,7 @@ class _RequestPageState extends State<RequestPage> {
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xff0030DD),
+                            color: Theme.of(context).primaryColorDark,
                           ),
                         ),
                       )
@@ -108,10 +108,12 @@ class _RequestPageState extends State<RequestPage> {
                       //data + icons
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
+                        Text(
                           'data',
-                          style:
-                              TextStyle(fontSize: 20, color: Color(0xff0030DD)),
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Theme.of(context).primaryColorDark,
+                          ),
                         ),
                         Row(
                           //has the add and minus icons
@@ -123,15 +125,17 @@ class _RequestPageState extends State<RequestPage> {
                                   _currentSliderValue -= 0.5;
                                 });
                               },
-                              icon: const Icon(
+                              icon: Icon(
                                 Icons.remove,
-                                color: Color(0xff0030DD),
+                                color: Theme.of(context).primaryColorDark,
                               ),
                             ),
                             Text(
                               '$_currentSliderValue GB',
-                              style: const TextStyle(
-                                  fontSize: 20, color: Color(0xff0030DD)),
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Theme.of(context).primaryColorDark,
+                              ),
                             ),
                             IconButton(
                               onPressed: () {
@@ -140,9 +144,9 @@ class _RequestPageState extends State<RequestPage> {
                                   _currentSliderValue += 0.5;
                                 });
                               },
-                              icon: const Icon(
+                              icon: Icon(
                                 Icons.add,
-                                color: Color(0xff0030DD),
+                                color: Theme.of(context).primaryColorDark,
                               ),
                             )
                           ],
@@ -152,7 +156,7 @@ class _RequestPageState extends State<RequestPage> {
                   ),
                   Slider(
                     label: _currentSliderValue.toString(),
-                    activeColor: Colors.blue,
+                    activeColor: Theme.of(context).primaryColorDark,
                     value: _currentSliderValue,
                     onChanged: (value) {
                       setState(() {
@@ -173,17 +177,21 @@ class _RequestPageState extends State<RequestPage> {
                         ),
                       ),
                     ),
-                    hint: const Padding(
+                    hint: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
                         'Select ...',
-                        style:
-                            TextStyle(fontSize: 20, color: Color(0xff0030DD)),
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Theme.of(context).primaryColorDark,
+                        ),
                       ),
                     ),
                     elevation: 20,
-                    icon: const Icon(Icons.arrow_drop_down_circle_outlined,
-                        color: Color(0xff0030DD)),
+                    icon: Icon(
+                      Icons.arrow_drop_down_circle_outlined,
+                      color: Theme.of(context).primaryColorDark,
+                    ),
                     items: CompanyName.map<DropdownMenuItem<String>>((value) {
                       return DropdownMenuItem<String>(
                         value: value,
@@ -191,8 +199,10 @@ class _RequestPageState extends State<RequestPage> {
                           padding: const EdgeInsets.symmetric(horizontal: 15),
                           child: Text(
                             value,
-                            style: const TextStyle(
-                                fontSize: 20, color: Color(0xff0030DD)),
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Theme.of(context).primaryColorDark,
+                            ),
                           ),
                         ),
                       );
@@ -212,17 +222,21 @@ class _RequestPageState extends State<RequestPage> {
                         ),
                       ),
                     ),
-                    hint: const Padding(
+                    hint: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
                         'Your Reason',
-                        style:
-                            TextStyle(fontSize: 20, color: Color(0xff0030DD)),
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Theme.of(context).primaryColorDark,
+                        ),
                       ),
                     ),
                     elevation: 20,
-                    icon: const Icon(Icons.arrow_drop_down_circle_outlined,
-                        color: Color(0xff0030DD)),
+                    icon: Icon(
+                      Icons.arrow_drop_down_circle_outlined,
+                      color: Theme.of(context).primaryColorDark,
+                    ),
                     items: ReasonsList.map<DropdownMenuItem<String>>((value) {
                       return DropdownMenuItem<String>(
                         value: value,
@@ -230,8 +244,10 @@ class _RequestPageState extends State<RequestPage> {
                           padding: const EdgeInsets.symmetric(horizontal: 15),
                           child: Text(
                             value,
-                            style: const TextStyle(
-                                fontSize: 23, color: Color(0xff0030DD)),
+                            style: TextStyle(
+                              fontSize: 23,
+                              color: Theme.of(context).primaryColorDark,
+                            ),
                           ),
                         ),
                       );
@@ -242,21 +258,24 @@ class _RequestPageState extends State<RequestPage> {
                       });
                     },
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: 50,
                   ),
                   ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Theme.of(context).backgroundColor,
+                    ),
                     onPressed: () {
                       validateUserInput(context);
                     },
-                    child: const Padding(
+                    child: Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Text(
                         'Request',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: Theme.of(context).primaryColorDark,
                         ),
                       ),
                     ),
@@ -272,16 +291,16 @@ class _RequestPageState extends State<RequestPage> {
         left: -10,
         //right: ,
         child: CircleAvatar(
-          backgroundColor: Color.fromARGB(184, 86, 117, 231),
-          radius: 90,
+          backgroundColor: Color.fromARGB(158, 152, 168, 226),
+          radius: 95,
         ),
       ),
       const Positioned(
         top: 8,
         left: -80,
         child: CircleAvatar(
-          backgroundColor: Color.fromARGB(184, 86, 117, 231),
-          radius: 90,
+          backgroundColor: Color.fromARGB(158, 152, 168, 226),
+          radius: 95,
         ),
       ),
       Positioned(
@@ -289,14 +308,14 @@ class _RequestPageState extends State<RequestPage> {
           left: 20,
           child: Material(
             child: Container(
-              color: Color.fromARGB(184, 86, 117, 231),
+              color: Color.fromARGB(158, 152, 168, 226),
               child: IconButton(
                 style: ElevatedButton.styleFrom(),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
                 icon: Icon(Icons.arrow_back),
-                color: Color(0xff0030DD),
+                color: Theme.of(context).buttonColor,
               ),
             ),
           ))

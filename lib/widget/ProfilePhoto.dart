@@ -34,7 +34,7 @@ class _ProfilePhotoState extends State<ProfilePhoto> {
 
   @override
   Widget build(BuildContext context) {
-    final color = Theme.of(context).colorScheme.primary;
+    final color = Theme.of(context).backgroundColor;
 
     return Center(
       child: Stack(

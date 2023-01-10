@@ -42,7 +42,7 @@ class _DonatePageState extends State<DonatePage> {
       Scaffold(
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: const Color(0xffC1CDED),
+          backgroundColor: Theme.of(context).canvasColor,
         ),
         body: Column(
           children: [
@@ -50,7 +50,7 @@ class _DonatePageState extends State<DonatePage> {
               height: height * 0.21 - AppbarHeight,
             ),
             Container(
-              color: const Color(0xffC1CDED),
+              color: Theme.of(context).canvasColor,
               height: height * 0.77 - AppbarHeight,
               width: width,
               child: ListView(
@@ -58,14 +58,14 @@ class _DonatePageState extends State<DonatePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      const Padding(
+                      Padding(
                         padding: EdgeInsets.only(right: 0.0),
                         child: Text(
                           'Select a Person To Donate',
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xff0030DD),
+                            color: Theme.of(context).primaryColorDark,
                           ),
                         ),
                       ),
@@ -254,7 +254,7 @@ class _DonatePageState extends State<DonatePage> {
         left: -10,
         //right: ,
         child: CircleAvatar(
-          backgroundColor: Color.fromARGB(184, 86, 117, 231),
+          backgroundColor: Color.fromARGB(158, 152, 168, 226),
           radius: 95,
         ),
       ),
@@ -262,7 +262,7 @@ class _DonatePageState extends State<DonatePage> {
         top: 8,
         left: -80,
         child: CircleAvatar(
-          backgroundColor: Color.fromARGB(184, 86, 117, 231),
+          backgroundColor: Color.fromARGB(158, 152, 168, 226),
           radius: 95,
         ),
       ),
@@ -271,14 +271,14 @@ class _DonatePageState extends State<DonatePage> {
           left: 20,
           child: Material(
             child: Container(
-              color: const Color.fromARGB(184, 86, 117, 231),
+              color: const Color.fromARGB(158, 152, 168, 226),
               child: IconButton(
                 style: ElevatedButton.styleFrom(),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
                 icon: const Icon(Icons.arrow_back),
-                color: const Color(0xff0030DD),
+                color: Theme.of(context).buttonColor,
               ),
             ),
           ))

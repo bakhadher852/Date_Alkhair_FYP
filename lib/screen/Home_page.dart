@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     //geting the username from the signup page
     final UserName = ModalRoute.of(context)!.settings.arguments as String;
+
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Stack(children: [
@@ -28,7 +29,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Theme.of(context).canvasColor,
         appBar: AppBar(
           //to change the background color of back button to disappear
-          iconTheme: IconThemeData(color: Color.fromARGB(0, 170, 187, 250)),
+          // iconTheme: IconThemeData(color: Color.fromARGB(0, 170, 187, 250)),
           bottom: PreferredSize(
               preferredSize: Size.fromHeight(height * 0.27),
               child: SizedBox(
@@ -51,7 +52,7 @@ class _HomePageState extends State<HomePage> {
                               style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.w600,
-                                color: Color.fromARGB(182, 255, 255, 255),
+                                color: Theme.of(context).primaryColorDark,
                               ),
                             ),
                           ),
@@ -59,11 +60,14 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Row(
                         children: [
-                          const Icon(Icons.star),
+                          Icon(Icons.star),
                           Text(
                             '0',
                             style: Theme.of(context).textTheme.labelMedium,
-                          )
+                          ),
+                          SizedBox(
+                            width: 30,
+                          ),
                         ],
                       )
                     ]),
@@ -126,14 +130,10 @@ class _HomePageState extends State<HomePage> {
                       },
                       child: Text(
                         'Donate data',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xff0030DD),
-                        ),
+                        style: Theme.of(context).textTheme.headline2,
                       ),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xff8FA4ED),
+                        backgroundColor: Theme.of(context).backgroundColor,
                         fixedSize: Size(width * 0.75, height * 0.08),
                         alignment: Alignment.center,
                         elevation: 5,
@@ -148,14 +148,10 @@ class _HomePageState extends State<HomePage> {
                       },
                       child: Text(
                         'Request data',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xff0030DD),
-                        ),
+                        style: Theme.of(context).textTheme.headline2,
                       ),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xff8FA4ED),
+                        backgroundColor: Theme.of(context).backgroundColor,
                         fixedSize: Size(width * 0.75, height * 0.08),
                         alignment: Alignment.center,
                         elevation: 5,
@@ -170,14 +166,10 @@ class _HomePageState extends State<HomePage> {
                       },
                       child: Text(
                         'My History',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xff0030DD),
-                        ),
+                        style: Theme.of(context).textTheme.headline2,
                       ),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xff8FA4ED),
+                        backgroundColor: Theme.of(context).backgroundColor,
                         fixedSize: Size(width * 0.75, height * 0.08),
                         alignment: Alignment.center,
                         elevation: 5,
@@ -197,7 +189,7 @@ class _HomePageState extends State<HomePage> {
         top: -80,
         left: -10,
         child: CircleAvatar(
-          backgroundColor: Color.fromARGB(163, 170, 187, 250),
+          backgroundColor: Color.fromARGB(158, 152, 168, 226),
           radius: 95,
         ),
       ),
@@ -205,7 +197,7 @@ class _HomePageState extends State<HomePage> {
         top: 8,
         left: -80,
         child: CircleAvatar(
-          backgroundColor: Color.fromARGB(163, 170, 187, 250),
+          backgroundColor: Color.fromARGB(158, 152, 168, 226),
           radius: 95,
         ),
       ),

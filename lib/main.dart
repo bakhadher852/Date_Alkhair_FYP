@@ -31,21 +31,39 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Khair Data sharing',
         theme: ThemeData(
-          iconTheme: IconThemeData(size: 30, color: Colors.white70),
+          //for Sign up page text
+          primaryColorDark: Colors.black,
+          primarySwatch: Colors.blue,
+          //home page button background color
+          backgroundColor: Color.fromARGB(107, 91, 123, 238),
+          //login button
+          iconTheme: IconThemeData(color: Color.fromARGB(107, 91, 123, 238)),
+          //Arrow Icon color ,going back arrow
+          buttonColor: Color.fromARGB(255, 58, 59, 63),
+          // Color(0xff0030DD)
           textTheme: TextTheme(
             labelMedium: TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.w600,
-              color: Color.fromARGB(182, 255, 255, 255),
             ),
+            //Login Page title
+            headline1: TextStyle(
+                fontSize: 40, fontWeight: FontWeight.bold, color: Colors.black),
+            // fromRGBO(91, 123, 238, 1)
+            //home page button text 3 button
+            headline2: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: Colors.black,
+              // Color(0xff0030DD)
+            ),
+            //for login page text in button
+            button: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
           ),
-          //primarySwatch: ,
-          //canvasColor: ,
-
-          //primaryColor: const Color.fromRGBO(91, 123, 238, 1),
-          canvasColor: const Color(0xffC1CDED),
-          appBarTheme: const AppBarTheme(
-              backgroundColor: Color.fromRGBO(91, 123, 238, 1), elevation: 5),
+          // canvasColor: const Color(0xffC1CDED)
+          canvasColor: Colors.white,
+          // Color(0xffC1CDED)
+          appBarTheme: AppBarTheme(backgroundColor: Colors.white),
         ),
         //home: const HomePage(),
         routes: {

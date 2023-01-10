@@ -15,23 +15,36 @@ class HistoryPage extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          centerTitle: true,
-          title: const Text(
-            'History',
-            style: TextStyle(fontSize: 25),
+          //change the back button color
+          iconTheme: const IconThemeData(
+            color: Colors.black, //change your color here
           ),
-          bottom: const TabBar(
-            indicatorColor: Colors.white,
+          centerTitle: true,
+          title: Text(
+            'History',
+            style: TextStyle(
+              fontSize: 25,
+              color: Theme.of(context).primaryColorDark,
+            ),
+          ),
+          bottom: TabBar(
+            indicatorColor: Color.fromARGB(137, 0, 0, 0),
             indicatorWeight: 3,
             automaticIndicatorColorAdjustment: false,
             tabs: [
               Text(
                 'Donated',
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Theme.of(context).primaryColorDark,
+                ),
               ),
               Text(
                 'Earned',
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Theme.of(context).primaryColorDark,
+                ),
               ),
             ],
           ),
